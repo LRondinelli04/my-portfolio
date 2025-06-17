@@ -22,7 +22,7 @@ export default function Contact() {
       </div>
       <div className="flex flex-row justify-center items-center gap-4 lg:px-6 mb-4">
         <a
-          href="mailto:alexander@meikopoulos.com"
+          href="mailto:lrondinelli04@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:cursor-pointer w-full"
@@ -31,7 +31,7 @@ export default function Contact() {
             <div className="flex flex-row items-center">
               <Mail className="dark:text-white text-muted h-6 w-6" />
               <p className="ml-3 text-2xl dark:text-white text-muted">
-                Say hello
+                Contacto
               </p>
             </div>
           </Button>

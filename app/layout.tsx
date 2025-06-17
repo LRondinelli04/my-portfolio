@@ -7,23 +7,23 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://meikopoulos.com"),
+  /* metadataBase: new URL("https://meikopoulos.com"), */ // URL del vercel
   alternates: {
-    canonical: "https://meikopoulos.com",
+    /* canonical: "https://meikopoulos.com", */ // URL del vercel
   },
-  title: "Alexander Meikopoulos - Product Designer in AI, Web3, and Finance",
+  title: "Lucas Rondinelli - Product Designer in AI, Web3, and Finance",
   description:
-    "Alexander Meikopoulos is a Product designer, developer & founder.",
+    "Lucas Rondinelli is a Product designer, developer & founder.",
   keywords:
-    "Alexander Meikopoulos, Product Designer, AI, Web3, Finance, User Experience, UI/UX Design, Design Systems, Front-end Development, Decentralized Finance, DeFi, Swoop Exchange, Vela Exchange, Stealth AI Startup, Technology, Innovation, Human-Centered Design",
+    "Lucas Rondinelli, Product Designer, AI, Web3, Finance, User Experience, UI/UX Design, Design Systems, Front-end Development, Decentralized Finance, DeFi, Swoop Exchange, Vela Exchange, Stealth AI Startup, Technology, Innovation, Human-Centered Design",
   openGraph: {
     locale: "en_US",
-    siteName: "Alexander Meikopoulos",
+    siteName: "Lucas Rondinelli",
     type: "website",
-    title: "Alexander Meikopoulos",
+    title: "Lucas Rondinelli",
     description:
-      "Alexander Meikopoulos is a Product designer, developer & founder.",
-    url: "https://meikopoulos.com",
+      "Lucas Rondinelli is a Product designer, developer & founder.",
+    /* url: "https://meikopoulos.com", */ // URL del vercel
     images: [
       {
         url: "./og-large-meik-2.jpg",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alexander Meikopoulos",
+    title: "Lucas Rondinelli",
   },
 };
 

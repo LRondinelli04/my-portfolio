@@ -6,50 +6,49 @@ export default function About() {
     <section id="about" className="scroll-mt-16 ">
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/0 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
         <h2 className="text-sm font-bold uppercase tracking-widest lg:sr-only">
-          About
+          Sobre mí
         </h2>
       </div>
       <div className="flex flex-col gap-4">
         <p className="text-start text-muted-foreground lg:px-6">
-          Throughout my journey from coding to design, I've been guided by a
-          simple belief:{" "}
-          <span className="text-white">
-            technology should feel natural and intuitive.
-          </span>{" "}
-          At the crossroads of AI, Web3, and Finance, I focus on creating user
-          experiences that make complex ideas accessible.
+          Me llamo <span className="text-white">Lucas Rondinelli</span> , un
+          estudiante de Licenciatura en Sistemas y Analista Programador
+          Universitario (APU) en la Facultad de Informática de La Plata - UNLP.
         </p>
         <p className="text-start  text-muted-foreground lg:px-6">
-          Currently, I'm leading product design at a stealth AI startup that's
-          rethinking how we interact with money. I'm also steering the design
-          team at{" "}
+          Actualmente, realizo una pasantía como desarrollador de software en
+          colaboración con la
           <a
             className="no-wrap text-primary dark:text-white"
-            href="https://vela.exchange"
+            href="https://www2.fepba.gov.ar/"
             target="blank"
             rel="noopener noreferrer"
           >
-            Vela Exchange
+            {" "}
+            Fiscalía de Estado
           </a>
-          , a decentralized platform for perpetual trading. As a co-founder,
-          designer, and developer at{" "}
+          , donde estoy adquiriendo experiencia trabajando con tecnologías como
+          .NET, C#, Angular y TypeScript, además de fortalecer mis conocimientos
+          en Git. Al mismo tiempo, estoy cursando la carrera de Desarrollador
+          Front End en{" "}
           <a
             className="no-wrap text-primary dark:text-white"
-            href="https://swoop.exchange"
+            href="https://www.educacionit.com/"
             target="blank"
             rel="noopener noreferrer"
           >
-            Swoop Exchange
+            {" "}
+            EducaciónIT
           </a>
-          , I've helped build a meta-aggregation engine used daily by thousands
-          of users.
+          , lo que me permite combinar mis habilidades y aplicar lo aprendido en
+          un entorno real a través de proyectos significativos.
         </p>
         <p className="text-start text-muted-foreground lg:px-6">
-          Across all the applications I've been involved with, I've had the
-          privilege to contribute in facilitating billions in transaction
-          volume. I believe in making technology feel human—designing
-          applications and experiences that are seamless extensions of
-          ourselves, serving real needs with simplicity and clarity.
+          Resido en La Plata, Buenos Aires, y mi objetivo a corto plazo es
+          finalizar la carrera de Analista Programador Universitario (APU) para
+          ingresar al ámbito laboral del desarrollo de software. A largo plazo,
+          aspiro a completar la Licenciatura en Sistemas, fortaleciendo mis
+          habilidades y conocimientos en este campo.
         </p>
       </div>
     </section>
