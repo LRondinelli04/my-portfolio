@@ -6,13 +6,16 @@ const useActiveSection = (sectionIds: string[]): string => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        // Ordena por el porcentaje visible (intersectionRatio)
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(visibleEntries[0].target.id);
+        }
       },
-      { threshold: 0.7 }
+      { threshold: 0.3 }
     );
 
     sectionIds.forEach((sectionId) => {

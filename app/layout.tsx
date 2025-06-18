@@ -7,32 +7,35 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  /* metadataBase: new URL("https://meikopoulos.com"), */ // URL del vercel
+  metadataBase: new URL(
+    "https://my-portfolio-bpck3wf85-lrondinelli04s-projects.vercel.app"
+  ),
   alternates: {
-    /* canonical: "https://meikopoulos.com", */ // URL del vercel
+    canonical:
+      "https://my-portfolio-bpck3wf85-lrondinelli04s-projects.vercel.app",
   },
-  title: "Lucas Rondinelli - Product Designer in AI, Web3, and Finance",
+  title: "Portfolio | Lucas Rondinelli",
   description:
-    "Lucas Rondinelli is a Product designer, developer & founder.",
+    "Estudiante de la carrera Analista Programador Universitario y Licenciatura en Sistemas en la UNLP, haciendo el curso de Desarrollador Front End en EducacionIT, y actualmente realizando una pasantía como desarrollador de software para Fiscalía de Estado en convenio con la UNLP.",
   keywords:
-    "Lucas Rondinelli, Product Designer, AI, Web3, Finance, User Experience, UI/UX Design, Design Systems, Front-end Development, Decentralized Finance, DeFi, Swoop Exchange, Vela Exchange, Stealth AI Startup, Technology, Innovation, Human-Centered Design",
+    "Lucas Rondinelli, Portfolio, Front End, Trabajo en equipo, Sistemas, UNLP, Analista Programador, Desarrollador, EducacionIT, Software, Argentina, Pasantía",
   openGraph: {
-    locale: "en_US",
-    siteName: "Lucas Rondinelli",
+    locale: "es_ES",
+    siteName: "Portfolio | Lucas Rondinelli",
     type: "website",
-    title: "Lucas Rondinelli",
+    title: "Portfolio | Lucas Rondinelli",
     description:
-      "Lucas Rondinelli is a Product designer, developer & founder.",
-    /* url: "https://meikopoulos.com", */ // URL del vercel
-    images: [
+      "Estudiante de la carrera Analista Programador Universitario y Licenciatura en Sistemas en la UNLP, haciendo el curso de Desarrollador Front End en EducacionIT, y actualmente realizando una pasantía como desarrollador de software para Fiscalía de Estado en convenio con la UNLP.",
+    url: "https://my-portfolio-bpck3wf85-lrondinelli04s-projects.vercel.app",
+    /* images: [
       {
         url: "./og-large-meik-2.jpg",
       },
-    ],
+    ], */
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lucas Rondinelli",
+    title: "Portfolio | Lucas Rondinelli",
   },
 };
 
