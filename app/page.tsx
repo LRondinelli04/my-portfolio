@@ -3,6 +3,7 @@ import Head from "next/head";
 import Nav from "@/components/Nav";
 import ExpCard from "@/components/ExpCards";
 import Projects from "@/components/Projects";
+import Studies from "@/components/Studies";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -47,6 +48,9 @@ export default function Home() {
             </section>
             <section id="experience">
               <ExpCard />
+            </section>
+            <section id="studies">
+              <Studies />
             </section>
             <section id="projects">
               <Projects />

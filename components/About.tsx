@@ -54,19 +54,6 @@ export default function About() {
           habilidades y conocimientos en este campo.
         </p>
       </div>
-      <div className="flex flex-end justify-end lg:px-6">
-        <Button variant="linkOutline" className="mt-4">
-          <a
-            href="https://www.linkedin.com/in/lucas-rondinelli-9b83a9267/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center "
-          >
-            <FileCode className="h-[1.2rem] w-[1.2rem]" />
-            CV
-          </a>
-        </Button>
-      </div>
     </section>
   );
 }

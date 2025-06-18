@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MoveRight } from "lucide-react";
+import { MoveRight, FileCode } from "lucide-react";
 import { link } from "fs";
 
 const jobPositions = [
@@ -19,7 +19,7 @@ const jobPositions = [
     previousPositions: [""],
     description:
       "Actualmente, realizo una pasantía en colaboración con la Facultad de Informática de La Plata (UNLP), donde amplío mis conocimientos en desarrollo tanto Back-End como Front-End. Trabajo con diversas tecnologías y frameworks modernos, participando activamente en la creación de soluciones innovadoras y eficientes. Este rol me permite aplicar mis habilidades técnicas en un entorno profesional, contribuyendo al desarrollo de aplicaciones que optimizan los procesos internos de la institución.",
-      link: "",
+    link: "",
     /* skills: [
       "Brand Identity",
       "Product Design",
@@ -63,7 +63,7 @@ export default function ExpCard() {
                 {job.description}
               </CardDescription>
               <CardFooter className="p-0 flex flex-wrap gap-2">
-               {/*  {job.skills.map((skill, index) => (
+                {/*  {job.skills.map((skill, index) => (
                   <Badge key={index}>{skill}</Badge>
                 ))} */}
               </CardFooter>
@@ -73,14 +73,12 @@ export default function ExpCard() {
       </>
       <div className="lg:px-12 mt-12">
         <a
-          href="mailto:alexander@meikopoulos.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center font-medium leading-tight text-foreground group"
+          href="/pdf/pdfPrueba.pdf"
+          download
+          className="inline-flex items-center font-medium leading-tight text-foreground group hover:text-primary focus-visible:text-primary transition-colors duration-200"
         >
-          <span className="border-b border-transparent pb-px transition hover:border-primary motion-reduce:transition-none">
-            Reach out for Full Resume
-          </span>
+          <FileCode className="h-[1.2rem] w-[1.2rem]" />
+          Descargar curriculum
           <MoveRight className="ml-1 inline-block h-5 w-5 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none" />
         </a>
       </div>

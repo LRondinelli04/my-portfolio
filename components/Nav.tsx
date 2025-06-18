@@ -15,15 +15,17 @@ export default function Nav() {
   const activeSection = useActiveSection([
     "about",
     "experience",
+    "studies",
     "projects",
     "contact",
   ]);
 
   const navItems: NavItem[] = [
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Sobre mí", href: "#about" },
+    { name: "Experiencia", href: "#experience" },
+    { name: "Estudios", href: "#studies" },
+    { name: "Proyectos", href: "#projects" },
+    { name: "Contacto", href: "#contact" },
   ];
 
   const getNavItemClasses = (href: string) => {
