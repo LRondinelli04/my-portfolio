@@ -1,6 +1,9 @@
 "use client";
 /* eslint-disable */
 
+import { Button } from "@/components/ui/button";
+import { FileCode } from "lucide-react";
+
 export default function About() {
   return (
     <section id="about" className="scroll-mt-16 ">
@@ -51,6 +54,19 @@ export default function About() {
           applications and experiences that are seamless extensions of
           ourselves, serving real needs with simplicity and clarity.
         </p>
+      </div>
+      <div className="flex flex-end justify-end lg:px-6">
+        <Button variant="linkOutline" className="mt-4">
+          <a
+            href="https://www.linkedin.com/in/lucas-rondinelli-9b83a9267/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center "
+          >
+            <FileCode className="h-[1.2rem] w-[1.2rem]" />
+            CV
+          </a>
+        </Button>
       </div>
     </section>
   );
