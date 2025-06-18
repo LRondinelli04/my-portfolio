@@ -14,7 +14,7 @@ export default function About() {
       </div>
       <div className="flex flex-col gap-4">
         <p className="text-start text-muted-foreground lg:px-6">
-          Me llamo <span className="text-white">Lucas Rondinelli</span> , un
+          Me llamo <span className="no-wrap text-primary dark:text-white">Lucas Rondinelli</span> , un
           estudiante de Licenciatura en Sistemas y Analista Programador
           Universitario (APU) en la Facultad de Informática de La Plata - UNLP.
         </p>
