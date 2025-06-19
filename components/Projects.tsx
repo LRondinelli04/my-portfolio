@@ -18,7 +18,17 @@ const jobProjects = [
     title: "Gestor de Presupuesto",
     description:
       "Aplicación web para gestionar un presupuesto y sus gastos, desarrollada con Angular. Permite ingresar un presupuesto inicial, agregar servicios con sus respectivos gastos, sumar al presupuesto existente y reiniciarlo.",
-    skills: ["Angular", "Typescript", "HTML", "CSS", "Bootstrap"],
+    skills: [
+      { name: "Angular", link: "https://angular.dev/" },
+      { name: "Typescript", link: "https://www.typescriptlang.org/" },
+      {
+        name: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      { name: "Bootstrap", link: "https://getbootstrap.com/" },
+    ],
+
     link: "https://presupuesto-ashen.vercel.app",
     github: "https://github.com/LRondinelli04/Presupuesto",
   },
@@ -27,8 +37,20 @@ const jobProjects = [
     title: "Preguntas y Respuestas",
     description:
       "Juego interactivo para dos jugadores, diseñado con JavaScript, HTML y CSS, que utiliza Socket.io para establecer una conexión local. Esta implementación garantiza una experiencia de juego fluida y en tiempo real.",
-    skills: ["JavaScript", "HTML", "CSS", "Bootstrap"],
-    /* link: "https://l3x.com", */
+    skills: [
+      {
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      },
+      {
+        name: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      { name: "Bootstrap", link: "https://getbootstrap.com/" },
+    ],
+
+    link: "https://l3x.com",
     github: "https://github.com/LRondinelli04/Preguntas-y-Respuestas",
   },
   {
@@ -36,7 +58,18 @@ const jobProjects = [
     title: "IT Resto",
     description:
       "Página web responsive para un restaurante, que permite visualizar promociones, menú, información de contacto y un formulario para realizar pedidos de delivery. Desarrollada con HTML, CSS, SCSS y JavaScript para ofrecer una experiencia de usuario atractiva y funcional en cualquier dispositivo.",
-    skills: ["HTML", "CSS", "SCSS", "JavaScript"],
+    skills: [
+      {
+        name: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      { name: "SCSS", link: "https://sass-lang.com/" },
+      {
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      },
+    ],
     link: "https://it-resto.vercel.app/",
     github: "https://github.com/LRondinelli04/IT_Resto",
   },
@@ -136,8 +169,29 @@ const jobProjects = [
         ],
       },
     ],
-    skills: ["Angular", "TypeScript", "TaigaUI", "DotNet", "C#"],
+    skills: [
+      { name: "Angular", link: "https://angular.dev/" },
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "TaigaUI", link: "https://taiga-ui.dev/" },
+      { name: "DotNet", link: "https://dotnet.microsoft.com/" },
+      { name: "C#", link: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+    ],
     /* link: "https://app.mtopswap.com", */
+  },
+  {
+    imagePath: "/projects/my-portfolio.jpg",
+    title: "Mi Portafolio",
+    description:
+      "Un portafolio personal con proyectos y habilidades desarrolladas.",
+    skills: [
+      { name: "Next.js", link: "https://nextjs.org/" },
+      { name: "Tailwind CSS", link: "https://tailwindcss.com/" },
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "React", link: "https://react.dev/" },
+      { name: "Shadcn UI", link: "https://ui.shadcn.com/" },
+    ],
+    link: "https://my-portfolio-ashy-tau-74.vercel.app/",
+    github: "https://github.com/LRondinelli04/my-portfolio",
   },
 ];
 
@@ -150,15 +204,75 @@ export default function Projects() {
         </h2>
       </div>
       <>
-        {jobProjects.map((project, index) => (
-          <a
-            key={index}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:cursor-pointer"
-          >
-            <Card className="group lg:p-6 mb-4 flex flex-col lg:flex-row w-full min-h-fit gap-0 lg:gap-5 border-transparent hover:border dark:lg:hover:border-t-blue-900 dark:lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg lg:hover:bg-slate-100/50 lg:hover:border-t-blue-200 duration-300 lg:hover:scale-105 lg:hover:shadow-lg">
+        {jobProjects.map((project, index) =>
+          project.link ? (
+            <a
+              key={index}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:cursor-pointer"
+            >
+              <Card className="group lg:p-6 mb-4 flex flex-col lg:flex-row w-full min-h-fit gap-0 lg:gap-5 border-transparent hover:border dark:lg:hover:border-t-blue-900 dark:lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg lg:hover:bg-slate-100/50 lg:hover:border-t-blue-200 duration-300 lg:hover:scale-105 lg:hover:shadow-lg">
+                <CardHeader className="h-full w-full lg:w-1/3 mb-4 p-0">
+                  <Image
+                    src={project.imagePath}
+                    alt={`Screenshot of ${project.title}`}
+                    width={1920}
+                    height={1080}
+                    priority
+                    className="bg-[#141414] mt-2 border border-muted-foreground rounded-[0.5rem]"
+                  />
+                </CardHeader>
+                <CardContent className="flex flex-col p-0 w-full lg:w-2/3">
+                  <div className="flex items-center justify-between">
+                    <p className="text-primary font-bold">
+                      {project.title}{" "}
+                      <MoveUpRight className="ml-1 inline-block h-5 w-5 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transition-none" />
+                    </p>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      aria-label="GitHub"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Abre el repositorio en una nueva pestaña
+                        window.open(
+                          project.github,
+                          "_blank",
+                          "noopener,noreferrer"
+                        );
+                      }}
+                      // Opcional: si quieres que el botón no sea "focusable" por tabulación cuando no hay github
+                      disabled={!project.github}
+                    >
+                      <GitHubIcon />
+                    </Button>{" "}
+                  </div>
+                  <CardDescription className="py-3 text-muted-foreground">
+                    {project.description}
+                  </CardDescription>
+                  <CardFooter className="p-0 flex flex-wrap gap-2">
+                    {project.skills.map((skill, index) => (
+                      <a
+                        href={skill.link}
+                        key={index}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`Ver más sobre ${skill.name}`}
+                      >
+                        <Badge variant="readyBlue">{skill.name}</Badge>
+                      </a>
+                    ))}
+                  </CardFooter>
+                </CardContent>
+              </Card>
+            </a>
+          ) : (
+            <Card
+              key={index}
+              className="group lg:p-6 mb-4 flex flex-col lg:flex-row w-full min-h-fit gap-0 lg:gap-5 border-transparent hover:border dark:lg:hover:border-t-blue-900 dark:lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg lg:hover:bg-slate-100/50 lg:hover:border-t-blue-200 duration-300 lg:hover:scale-105 lg:hover:shadow-lg"
+            >
               <CardHeader className="h-full w-full lg:w-1/3 mb-4 p-0">
                 <Image
                   src={project.imagePath}
@@ -199,13 +313,21 @@ export default function Projects() {
                 </CardDescription>
                 <CardFooter className="p-0 flex flex-wrap gap-2">
                   {project.skills.map((skill, index) => (
-                    <Badge key={index}>{skill}</Badge>
+                    <a
+                      href={skill.link}
+                      key={index}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`Ver más sobre ${skill.name}`}
+                    >
+                      <Badge variant="readyBlue">{skill.name}</Badge>
+                    </a>
                   ))}
                 </CardFooter>
               </CardContent>
             </Card>
-          </a>
-        ))}
+          )
+        )}
       </>
     </section>
   );

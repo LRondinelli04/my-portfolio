@@ -16,6 +16,7 @@ const badgeVariants = cva(
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
         ready: "",
+        readyBlue: "",
         notReady: "",
       },
     },
@@ -42,9 +43,21 @@ function Badge({ className, variant, children, ...props }: BadgeProps) {
       </div>
     );
   }
+  if (variant === "readyBlue") {
+    return (
+      <div className={cn("flex items-center", className)} {...props}>
+        <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
+          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#2563eb_0%,#60a5fa_50%,#2563eb_100%)]"></span>
+          <div className="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap dark:hover:bg-green-100 dark:hover:bg-opacity-55 dark:hover:text-green-900 transition-colors duration-300">
+            {children}
+          </div>
+        </span>
+      </div>
+    );
+  }
   if (variant === "notReady") {
     return (
-      <div className="flex items-center w-fit" >
+      <div className="flex items-center w-fit">
         <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
           <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FF0000_0%,#8B0000_50%,#FF0000_100%)]"></span>
           <div className="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-red-800 bg-red-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap dark:hover:bg-red-100 dark:hover:bg-opacity-55 dark:hover:text-red-900 transition-colors duration-300">
