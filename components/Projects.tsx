@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -12,8 +13,27 @@ import { MoveUpRight } from "lucide-react";
 import { GitHubIcon } from "@/components/ui/GitHub";
 import { Button } from "@/components/ui/button";
 
-const jobProjects = [
+export type Project = {
+  slug: string;
+  imagePath: string;
+  title: string;
+  description: string;
+  skills: { name: string; link: string }[];
+  link?: string;
+  github?: string;
+  details?: {
+    title: string;
+    items: {
+      data: string;
+      subData?: string[];
+    }[];
+  }[];
+  images?: { src: string; alt: string }[];
+};
+
+export const jobProjects: Project[] = [
   {
+    slug: "gestor-presupuesto",
     imagePath: "/projects/Presupuesto.jpg",
     title: "Gestor de Presupuesto",
     description:
@@ -33,6 +53,7 @@ const jobProjects = [
     github: "https://github.com/LRondinelli04/Presupuesto",
   },
   {
+    slug: "preguntas-y-respuestas",
     imagePath: "/projects/TPFinalJS.jpg",
     title: "Preguntas y Respuestas",
     description:
@@ -54,6 +75,7 @@ const jobProjects = [
     github: "https://github.com/LRondinelli04/Preguntas-y-Respuestas",
   },
   {
+    slug: "it-resto",
     imagePath: "/projects/ITResto.jpg",
     title: "IT Resto",
     description:
@@ -74,7 +96,18 @@ const jobProjects = [
     github: "https://github.com/LRondinelli04/IT_Resto",
   },
   {
+    slug: "monitoreo-servicios",
     imagePath: "/projects/monitoreo/m1.jpg",
+    images: [
+      { src: "/projects/monitoreo/m1.jpg", alt: "Monitoreo" },
+      { src: "/projects/monitoreo/m2.jpg", alt: "Monitoreo" },
+      { src: "/projects/monitoreo/m3.jpg", alt: "Monitoreo" },
+      { src: "/projects/monitoreo/m4.jpg", alt: "Monitoreo" },
+      { src: "/projects/monitoreo/m5.jpg", alt: "Monitoreo" },
+      { src: "/projects/monitoreo/m6.jpg", alt: "Monitoreo" },
+      { src: "/projects/monitoreo/m7.jpg", alt: "Monitoreo" },
+      { src: "/projects/monitoreo/m8.jpg", alt: "Monitoreo" },
+    ],
     title: "Monitoreo de Servicios y Servidores",
     description:
       "Aplicación web para monitorear servicios y servidores, desarrollada con Angular (TypeScript y TaigaUI) para el frontend y .NET (C#) para el backend.",
@@ -179,6 +212,7 @@ const jobProjects = [
     /* link: "https://app.mtopswap.com", */
   },
   {
+    slug: "mi-portafolio",
     imagePath: "/projects/my-portfolio.jpg",
     title: "Mi Portafolio",
     description:
@@ -264,6 +298,11 @@ export default function Projects() {
                         <Badge variant="readyBlue">{skill.name}</Badge>
                       </a>
                     ))}
+                    {project.details && (
+                      <Link href={`/projects/${project.slug}`}>
+                        <Button>Ver detalles</Button>
+                      </Link>
+                    )}
                   </CardFooter>
                 </CardContent>
               </Card>
@@ -323,6 +362,11 @@ export default function Projects() {
                       <Badge variant="readyBlue">{skill.name}</Badge>
                     </a>
                   ))}
+                  {project.details && (
+                    <Link href={`/projects/${project.slug}`}>
+                      <Button>Ver detalles</Button>
+                    </Link>
+                  )}
                 </CardFooter>
               </CardContent>
             </Card>
