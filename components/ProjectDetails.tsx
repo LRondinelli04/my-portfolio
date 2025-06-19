@@ -2,20 +2,30 @@
 import Image from "next/image";
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import { useEffect, useRef } from "react";
 
 export default function ProjectDetails({ project }: { project: any }) {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   const auraRef = useRef<HTMLDivElement>(null);
 
@@ -39,29 +49,33 @@ export default function ProjectDetails({ project }: { project: any }) {
 
       <main className="lg:flex lg:justify-between lg:gap-4">
         {project.images && project.images.length > 0 && (
-          <Carousel
-            orientation="vertical"
-            opts={{ align: "start" }}
-            className="w-full max-w-lg mb-8 lg:mt-24 lg:h-fit"
-          >
-            <CarouselContent className="-mt-1 h-[350px]">
-              {project.images.map((image: any, index: number) => (
-                <CarouselItem key={index} className="pt-1">
-                  <div className="p-1 flex justify-center">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      width={600}
-                      height={350}
-                      className="rounded-lg object-cover"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+          <div className="flex justify-center w-full">
+            <Carousel
+              orientation="vertical"
+              opts={{ align: "start" }}
+              className="w-full max-w-lg mb-8 lg:mt-24 lg:h-fit border-transparent hover:border dark:lg:hover:border-t-blue-900 dark:lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg lg:hover:bg-slate-100/50 lg:hover:border-t-blue-200 duration-300 lg:hover:scale-105 lg:hover:shadow-lg rounded-lg p-2"
+              setApi={setApi}
+            >
+              <CarouselContent className="-mt-1 h-[350px]">
+                {project.images.map((image: any, index: number) => (
+                  <CarouselItem key={index} className="pt-1">
+                    <div className="p-1 flex justify-center">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={600}
+                        height={350}
+                        className="rounded-lg object-cover"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="text-muted-foreground py-2 pt-0 text-center text-sm">
+                Slide {current} de {count}
+              </div>
+            </Carousel>
+          </div>
         )}
 
         <div className="w-full max-w-2xl">
