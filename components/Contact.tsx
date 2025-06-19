@@ -23,8 +23,6 @@ export default function Contact() {
       <div className=" items-center gap-4 lg:px-6 mb-4">
         <a
           href="mailto:lrondinelli04@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
           className="hover:cursor-pointer w-full"
         >
           <Button variant={"default"} className="w-full h-full">
