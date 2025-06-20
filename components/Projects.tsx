@@ -247,7 +247,7 @@ export default function Projects() {
               rel="noopener noreferrer"
               className="hover:cursor-pointer"
             >
-              <Card className="group lg:p-6 mb-4 flex flex-col lg:flex-row w-full min-h-fit gap-0 lg:gap-5 border-transparent hover:border dark:lg:hover:border-t-blue-900 dark:lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg lg:hover:bg-slate-100/50 lg:hover:border-t-blue-200 duration-300 lg:hover:scale-105 lg:hover:shadow-lg">
+              <Card className="group lg:p-6 p-5 mb-4 flex flex-col lg:flex-row w-full min-h-fit gap-0 lg:gap-5 border-transparent hover:border dark:lg:hover:border-t-blue-900 dark:lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg lg:hover:bg-slate-100/50 lg:hover:border-t-blue-200 duration-300 lg:hover:scale-105 lg:hover:shadow-lg">
                 <CardHeader className="h-full w-full lg:w-1/3 mb-4 p-0">
                   <Image
                     src={project.imagePath}
@@ -293,6 +293,7 @@ export default function Projects() {
                         key={index}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="hover:scale-105 transition-transform duration-200"
                         title={`Ver más sobre ${skill.name}`}
                       >
                         <Badge variant="readyBlue">{skill.name}</Badge>

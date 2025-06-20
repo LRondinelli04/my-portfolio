@@ -48,7 +48,7 @@ function Badge({ className, variant, children, ...props }: BadgeProps) {
       <div className={cn("flex items-center", className)} {...props}>
         <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
           <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#2563eb_0%,#60a5fa_50%,#2563eb_100%)]"></span>
-          <div className="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap dark:hover:bg-green-100 dark:hover:bg-opacity-55 dark:hover:text-green-900 transition-colors duration-300">
+          <div className="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-blue-800 bg-blue-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap dark:hover:bg-blue-100 dark:hover:bg-opacity-55 dark:hover:text-blue-900 transition-colors duration-300">
             {children}
           </div>
         </span>
