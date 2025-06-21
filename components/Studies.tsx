@@ -22,17 +22,21 @@ const certifications = [
       /* "Certificación obtenida tras completar la carrera de Front End Web Developer provista por EducacionIT." */ "Último certificado adquirido",
     image: "/certifications/UltimoEduIT.jpeg",
     certificateLink:
-      "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/71404",
-    linkedinLink:
-      "https://www.linkedin.com/posts/lucas-rondinelli-9b83a9267_educacionit-frontendwebdeveloper-gitdesarrollocolaborativo-activity-7225601242704601089-YV32?utm_source=share&utm_medium=member_desktop",
+      "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/76136",
+    /* linkedinLink:
+      "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/76136", */
     subCertifications: [
+      {
+        title: "Responsive Web Bootstrap",
+        date: "Junio 2025",
+        certificateLink:
+          "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/76136",
+      },
       {
         title: "Presupuesto Digital",
         date: "Marzo 2025",
         certificateLink:
           "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/76143?_gl=1*xj21o0*_ga*MjEyODY2MjUzNS4xNzQxODkxNzE3*_ga_R8GR8LL2B8*MTc0MzAwOTMzMS43LjEuMTc0MzAxMTkwOC40Ni4xLjE0MDE5OTIxNzI.",
-        /* linkedinLink:
-          "https://www.linkedin.com/posts/lucas-rondinelli-9b83a9267_educacionit-frontendwebdeveloper-gitdesarrollocolaborativo-activity-7225601242704601089-YV32?utm_source=share&utm_medium=member_desktop", */
       },
       {
         title: "Javascript Desarrollador Avanzado",
@@ -197,15 +201,17 @@ export default function Studies() {
                 <FileCode className="size-4" />
                 Certificado
               </a>
-              <a
-                href={certification.linkedinLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="publicCertification inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors w-fit sm:w-auto"
-              >
-                <Linkedin className="size-4" />
-                <p> Publicación </p>
-              </a>
+              {certification.linkedinLink && (
+                <a
+                  href={certification.linkedinLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="publicCertification inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors w-fit sm:w-auto"
+                >
+                  <Linkedin className="size-4" />
+                  <p> Publicación </p>
+                </a>
+              )}
               <div className="moreCertifications w-full">
                 {certification.subCertifications && (
                   <Button
@@ -214,11 +220,11 @@ export default function Studies() {
                   >
                     {openCertification === index ? (
                       <>
-                        <Minus className="size-4" />
+                        <Minus className="size-4 text-white" />
                       </>
                     ) : (
                       <>
-                        <Plus className="size-4" />
+                        <Plus className="size-4 text-white" />
                       </>
                     )}
                   </Button>
@@ -232,47 +238,51 @@ export default function Studies() {
                 ...(openCertification === index ? openStyles : {}),
               }}
             >
-              {certification.subCertifications &&
-                openCertification === index && (
-                  <div className="mt-4">
-                    <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100">
-                      Certificados de Cursos:
-                    </h4>
-                    <ul className="subCertList list-disc ml-4 text-gray-700 dark:text-gray-400">
-                      {certification.subCertifications.map(
-                        (subCert, subIndex) => (
-                          <li key={subIndex} className="mt-5">
-                            <p>
-                              <strong>{subCert.title}</strong> - {subCert.date}
-                            </p>
-                            <div className="buttonsSubCertification flex flex-col sm:flex-row gap-2 mt-2 w-fit">
+              {certification.subCertifications && (
+                <div
+                  className="mt-4"
+                  style={{
+                    display: openCertification === index ? "block" : "none",
+                  }}
+                >
+                  <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100">
+                    Certificados de Cursos:
+                  </h4>
+                  <ul className="subCertList list-disc ml-4 text-gray-700 dark:text-gray-400">
+                    {certification.subCertifications.map(
+                      (subCert, subIndex) => (
+                        <li key={subIndex} className="mt-5">
+                          <p>
+                            <strong>{subCert.title}</strong> - {subCert.date}
+                          </p>
+                          <div className="buttonsSubCertification flex flex-col sm:flex-row gap-2 mt-2 w-fit">
+                            <a
+                              href={subCert.certificateLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="subCertification inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors w-full sm:w-auto"
+                            >
+                              <FileCode className="size-4" />
+                              Certificado
+                            </a>
+                            {subCert.linkedinLink && (
                               <a
-                                href={subCert.certificateLink}
+                                href={subCert.linkedinLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="subCertification inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors w-full sm:w-auto"
                               >
-                                <FileCode className="size-4" />
-                                Certificado
+                                <Linkedin className="size-4" />
+                                <p> Publicación </p>
                               </a>
-                              {subCert.linkedinLink && (
-                                <a
-                                  href={subCert.linkedinLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="subCertification inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors w-full sm:w-auto"
-                                >
-                                  <Linkedin className="size-4" />
-                                  <p> Publicación </p>
-                                </a>
-                              )}
-                            </div>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                )}
+                            )}
+                          </div>
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </article>
