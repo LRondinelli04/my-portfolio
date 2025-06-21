@@ -17,7 +17,7 @@ const certifications = [
   {
     title: "Front End Web Developer - (En curso)",
     issuer: "EducacionIT",
-    date: "Marzo 2025",
+    date: "Junio 2025",
     description:
       /* "Certificación obtenida tras completar la carrera de Front End Web Developer provista por EducacionIT." */ "Último certificado adquirido",
     image: "/certifications/UltimoEduIT.jpeg",
