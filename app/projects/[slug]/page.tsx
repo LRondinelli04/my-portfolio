@@ -16,7 +16,7 @@ export default function ProjectPage({ params }: Props) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-background">
       <ProjectDetails project={project} />
-      <Link href="/" className="mt-8">
+      <Link href="/#projects" className="mt-8">
         <Button className="text-white">Volver a la página principal</Button>
       </Link>
     </div>
