@@ -71,7 +71,6 @@ export const jobProjects: Project[] = [
       { name: "Bootstrap", link: "https://getbootstrap.com/" },
     ],
 
-    link: "https://l3x.com",
     github: "https://github.com/LRondinelli04/Preguntas-y-Respuestas",
   },
   {
