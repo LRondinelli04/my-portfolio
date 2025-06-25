@@ -16,8 +16,8 @@ export default function Contact() {
           Contáctame
         </h2>
         <p className="lg:text-lg lg:text-start text-muted-foreground">
-          If you&#39;re considering my contribution, have a question, or just
-          want to say hi, you can count on hearing back from me!
+          Si estás considerando mi colaboración, tienes alguna pregunta, o
+          simplemente quieres saludar, ¡puedes contar con que te responderé!
         </p>
       </div>
       <div className=" items-center gap-4 lg:px-6 mb-4">
