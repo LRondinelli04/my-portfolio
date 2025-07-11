@@ -51,7 +51,7 @@ export default function Nav() {
         <div className="w-full flex lg:items-center lg:justify-start ">
           <Avatar className="avatar-glow w-24 lg:w-36 h-auto border-2 border-primary bg-secondary transition-trasnform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary hover:border-2 hover:border-primary">
             <a
-              /* href="https://www.instagram.com/lucasrondinelli_/" */ // AGREGAR CV
+              href="/pdf/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -75,7 +75,7 @@ export default function Nav() {
           rel="noopener noreferrer"
           className="hover:cursor-pointer w-fit"
         >
-          <Badge variant="notReady">No disponible para trabajar</Badge>
+          <Badge variant="ready">Disponible para trabajar</Badge>
         </a>
         {/* <p className="text-lg lg:text-start text-muted-foreground">
           I help innovative startups in AI, Web3, and Finance craft exceptional
