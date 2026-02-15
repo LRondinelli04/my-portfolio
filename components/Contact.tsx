@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, FileCode } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Button } from "./ui/button";
 
 export default function Contact() {
@@ -23,7 +23,7 @@ export default function Contact() {
       <div className=" items-center gap-4 lg:px-6 mb-4">
         <Button asChild variant={"default"} className="w-full h-full">
           <a
-            href="mailto:lrondinelli04@gmail.com"
+            href="mailto:lrondinelli2004@gmail.com"
             className="hover:cursor-pointer w-full"
           >
             <div className="flex flex-row items-center">
