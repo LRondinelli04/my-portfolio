@@ -21,17 +21,17 @@ export default function Contact() {
         </p>
       </div>
       <div className=" items-center gap-4 lg:px-6 mb-4">
-        <a
-          href="mailto:lrondinelli04@gmail.com"
-          className="hover:cursor-pointer w-full"
-        >
-          <Button variant={"default"} className="w-full h-full">
+        <Button asChild variant={"default"} className="w-full h-full">
+          <a
+            href="mailto:lrondinelli04@gmail.com"
+            className="hover:cursor-pointer w-full"
+          >
             <div className="flex flex-row items-center">
               <Mail className="dark:text-white text-muted h-6 w-6" />
               <p className="ml-3 text-2xl dark:text-white text-muted">Email</p>
             </div>
-          </Button>
-        </a>
+          </a>
+        </Button>
       </div>
     </section>
   );
