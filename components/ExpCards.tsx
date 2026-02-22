@@ -14,20 +14,20 @@ import { link } from "fs";
 const jobPositions = [
   {
     timeline: "Jun 2024 — Actualidad",
-    currentPosition: "Desarrollador de Software - Pasantía",
+    currentPosition: "Desarrollador de Software",
     place: "Fiscalía de Estado - Buenos Aires",
     previousPositions: [""],
     description:
-      "Actualmente, realizo una pasantía en colaboración con la Facultad de Informática de La Plata (UNLP), donde amplío mis conocimientos en desarrollo tanto Back-End como Front-End. Trabajo con diversas tecnologías y frameworks modernos, participando activamente en la creación de soluciones innovadoras y eficientes. Este rol me permite aplicar mis habilidades técnicas en un entorno profesional, contribuyendo al desarrollo de aplicaciones que optimizan los procesos internos de la institución.",
+      "Me desempeño como Desarrollador de Software en la Fiscalía de Estado de Buenos Aires, donde participo en el desarrollo de aplicaciones que optimizan los procesos internos de la institución.",
     link: "",
-    /* skills: [
+    skills: [
       "Brand Identity",
       "Product Design",
       "UI/UX Design",
       "Design Systems",
       "Design Strategy",
       "Team Leadership",
-    ], */
+    ],
   },
 ];
 
@@ -64,7 +64,7 @@ export default function ExpCard() {
                 {job.description}
               </CardDescription>
               <CardFooter className="p-0 flex flex-wrap gap-2">
-                {/*  {job.skills.map((skill, index) => (
+                {/* {job.skills.map((skill, index) => (
                   <Badge key={index}>{skill}</Badge>
                 ))} */}
               </CardFooter>
