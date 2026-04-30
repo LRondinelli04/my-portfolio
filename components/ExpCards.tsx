@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MoveRight, FileCode } from "lucide-react";
-import { link } from "fs";
 
 const jobPositions = [
   {

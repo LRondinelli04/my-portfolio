@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import "./Studies.css";
 import Image from "next/image";
 import {
@@ -117,43 +117,43 @@ const certifications = [
   },
 ];
 
+interface SubCertification {
+  title: string;
+  date: string;
+  certificateLink: string;
+  linkedinLink?: string;
+}
+
+interface Certification {
+  title: string;
+  issuer: string;
+  date: string;
+  description: string;
+  image: string;
+  certificateLink: string;
+  linkedinLink?: string;
+  subCertifications?: SubCertification[];
+}
+
+const transitionStyles: React.CSSProperties = {
+  transition: "max-height 500ms ease-in-out, opacity 500ms ease-in-out",
+  overflow: "hidden",
+  opacity: 0,
+  maxHeight: 0,
+};
+
+const openStyles: React.CSSProperties = {
+  opacity: 1,
+  maxHeight: "1000px",
+};
+
 export default function Studies() {
   const [openCertification, setOpenCertification] = useState<number | null>(
     null
   );
 
-  interface SubCertification {
-    title: string;
-    date: string;
-    certificateLink: string;
-    linkedinLink?: string;
-  }
-
-  interface Certification {
-    title: string;
-    issuer: string;
-    date: string;
-    description: string;
-    image: string;
-    certificateLink: string;
-    linkedinLink: string;
-    subCertifications?: SubCertification[];
-  }
-
   const toggleSubCertifications = (index: number) => {
     setOpenCertification(openCertification === index ? null : index);
-  };
-
-  const transitionStyles = {
-    transition: "max-height 500ms ease-in-out, opacity 500ms ease-in-out",
-    overflow: "hidden",
-    opacity: 0,
-    maxHeight: 0,
-  };
-
-  const openStyles = {
-    opacity: 1,
-    maxHeight: "1000px",
   };
 
   return (

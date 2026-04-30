@@ -3,9 +3,30 @@ import { jobProjects } from "@/components/data/projectsData";
 import { Button } from "@/components/ui/button";
 import ProjectDetails from "@/components/ProjectDetails";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 interface Props {
   params: { slug: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const project = jobProjects.find((p) => p.slug === params.slug);
+  if (!project) {
+    return { title: "Proyecto no encontrado" };
+  }
+  return {
+    title: `${project.title} | Lucas Rondinelli`,
+    description: project.description,
+    openGraph: {
+      title: `${project.title} | Lucas Rondinelli`,
+      description: project.description,
+      images: [{ url: project.imagePath }],
+    },
+  };
+}
+
+export function generateStaticParams() {
+  return jobProjects.map((p) => ({ slug: p.slug }));
 }
 
 export default function ProjectPage({ params }: Props) {
