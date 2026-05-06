@@ -49,7 +49,7 @@ export const jobProjects: Project[] = [
       { name: "Bootstrap", link: "https://getbootstrap.com/" },
     ],
 
-    link: "https://presupuesto-ashen.vercel.app",
+    link: "https://agent-69fb385c348bc34d2de--gestor-de-presupuesto.netlify.app",
     github: "https://github.com/LRondinelli04/Presupuesto",
   },
   {
@@ -91,7 +91,7 @@ export const jobProjects: Project[] = [
         link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
       },
     ],
-    link: "https://it-resto.vercel.app/",
+    link: "https://eduit-resto.netlify.app/",
     github: "https://github.com/LRondinelli04/IT_Resto",
   },
   {
@@ -223,7 +223,7 @@ export const jobProjects: Project[] = [
       { name: "React", link: "https://react.dev/" },
       { name: "Shadcn UI", link: "https://ui.shadcn.com/" },
     ],
-    link: "https://my-portfolio-ashy-tau-74.vercel.app/",
+    link: "https://lucasrondinelli.netlify.app/",
     github: "https://github.com/LRondinelli04/my-portfolio",
   },
 ];
