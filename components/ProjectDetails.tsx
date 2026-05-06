@@ -8,9 +8,10 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { useEffect, useRef } from "react";
+import { useMouseAura } from "@/hooks/useMouseAura";
+import type { Project } from "@/components/data/projectsData";
 
-export default function ProjectDetails({ project }: { project: any }) {
+export default function ProjectDetails({ project }: { project: Project }) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
@@ -25,21 +26,7 @@ export default function ProjectDetails({ project }: { project: any }) {
     });
   }, [api]);
 
-  const auraRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const updateAuraPosition = (e: MouseEvent) => {
-      if (auraRef.current) {
-        auraRef.current.style.setProperty("--mouse-x", `${e.clientX}px`);
-        auraRef.current.style.setProperty("--mouse-y", `${e.clientY}px`);
-      }
-    };
-    window.addEventListener("pointermove", updateAuraPosition);
-
-    return () => {
-      window.removeEventListener("pointermove", updateAuraPosition);
-    };
-  }, []);
+  const auraRef = useMouseAura();
 
   return (
     <>
@@ -57,13 +44,13 @@ export default function ProjectDetails({ project }: { project: any }) {
             <div className="mt-12 max-w-lg lg:max-w-none">
               {project.details && (
                 <div className="mb-8">
-                  {project.details.map((section: any, idx: number) => (
+                  {project.details.map((section, idx) => (
                     <div key={idx} className="mb-4">
                       <h2 className="font-semibold text-blue-400">
                         {section.title}
                       </h2>
                       <ul className="list-disc ml-6">
-                        {section.items.map((item: any, i: number) => (
+                        {section.items.map((item, i) => (
                           <li key={i}>
                             {item.data}
                             {item.subData && (
@@ -94,7 +81,7 @@ export default function ProjectDetails({ project }: { project: any }) {
                   setApi={setApi}
                 >
                   <CarouselContent className="-mt-1 h-[400px] lg:h-[300px]">
-                    {project.images.map((image: any, index: number) => (
+                    {project.images.map((image, index) => (
                       <CarouselItem key={index} className="pt-1">
                         <div className="p-1 flex justify-center">
                           <Image
