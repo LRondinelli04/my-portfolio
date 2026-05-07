@@ -8,7 +8,7 @@ export default function About() {
         combinan lógica robusta con experiencias visuales cuidadas.
       </p>
       <p className="about-p">
-        Actualmente en pasantía como desarrollador de software en la{" "}
+        Actualmente estoy trabajando como desarrollador de software en la{" "}
         <a
           href="https://www2.fepba.gov.ar/"
           target="_blank"
@@ -17,7 +17,7 @@ export default function About() {
         >
           Fiscalía de Estado de Buenos Aires
         </a>
-        , trabajando con .NET, C#, Angular y TypeScript en proyectos de impacto
+        , utilizando tecnologías como .NET, C#, Angular y TypeScript en proyectos de impacto
         institucional real.
       </p>
       <p className="about-p">
@@ -31,7 +31,7 @@ export default function About() {
         <div>
           <p className="currently-label">Actualmente</p>
           <p className="currently-title">
-            Desarrollador de Software — Pasantía
+            Desarrollador de Software
           </p>
           <p className="currently-sub">
             Fiscalía de Estado · Jun 2024 – Presente
