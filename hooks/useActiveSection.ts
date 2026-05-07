@@ -1,34 +1,27 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const useActiveSection = (sectionIds: string[]): string => {
-  const [activeSection, setActiveSection] = useState<string>(
-    sectionIds[0] || ""
-  );
+const useActiveSection = (ids: string[]): string => {
+  const [active, setActive] = useState<string>(ids[0] || "");
 
   useEffect(() => {
-    const handleScroll = () => {
-      let found = false;
-      for (let i = 0; i < sectionIds.length; i++) {
-        const section = document.getElementById(sectionIds[i]);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(sectionIds[i]);
-            found = true;
-            break;
-          }
-        }
-      }
-      if (!found) setActiveSection(sectionIds[0]);
-    };
+    const observers: IntersectionObserver[] = [];
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActive(id);
+        },
+        { rootMargin: "-40% 0px -55% 0px" }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [sectionIds]);
-
-  return activeSection;
+  return active;
 };
 
 export default useActiveSection;

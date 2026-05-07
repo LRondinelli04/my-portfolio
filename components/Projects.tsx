@@ -227,3 +227,12 @@ export const jobProjects: Project[] = [
     github: "https://github.com/LRondinelli04/my-portfolio",
   },
 ];
+
+// Temporary stub — replaced by the real component in Phase 5.
+export default function Projects() {
+  return (
+    <div className="text-[var(--fg-muted)]">
+      Projects (placeholder — rediseño en Fase 5)
+    </div>
+  );
+}
