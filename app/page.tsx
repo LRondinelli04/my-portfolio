@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import ExpCard from "@/components/ExpCards";
-import Projects from "@/components/Projects";
+import Projects from "@/components/sections/Projects";
 import Studies from "@/components/sections/Studies";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
