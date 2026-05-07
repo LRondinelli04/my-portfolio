@@ -260,6 +260,181 @@
   display: block;
 }
 
+/* Portfolio v2 — Studies */
+.study-card,
+.cert-card {
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius);
+  background: var(--bg-card);
+  transition: border-color 0.2s ease;
+}
+
+.study-card:hover,
+.cert-card:hover {
+  border-color: var(--portfolio-border-mid);
+}
+
+.study-card {
+  display: flex;
+  gap: 18px;
+  padding: 22px;
+}
+
+.study-badge {
+  flex: 0 0 48px;
+  height: 48px;
+  border-radius: var(--portfolio-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head), "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+.study-badge--uni {
+  background: var(--portfolio-accent2-dim);
+  color: var(--portfolio-accent2);
+  border: 1px solid var(--portfolio-accent2-dim);
+}
+
+.study-title {
+  font-family: var(--font-head), "Space Grotesk", sans-serif;
+  font-weight: 600;
+  color: var(--fg);
+  font-size: 15px;
+}
+
+.study-sub {
+  color: var(--fg-muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.study-desc {
+  color: var(--fg-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 8px;
+}
+
+.cert-top {
+  padding: 22px;
+}
+
+.cert-title {
+  font-family: var(--font-head), "Space Grotesk", sans-serif;
+  font-weight: 600;
+  color: var(--fg);
+  font-size: 15px;
+}
+
+.cert-issuer {
+  color: var(--fg-muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.cert-desc {
+  color: var(--fg-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 10px;
+}
+
+.cert-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.cert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: var(--portfolio-radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--portfolio-accent-dim);
+  color: var(--portfolio-accent);
+  background: var(--portfolio-accent-dim);
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.cert-btn:hover {
+  background: oklch(0.68 0.22 258 / 0.22);
+  border-color: var(--portfolio-accent);
+}
+
+.cert-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: var(--portfolio-radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--portfolio-border-mid);
+  color: var(--fg-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.cert-expand-btn:hover {
+  color: var(--fg);
+  border-color: var(--fg-muted);
+}
+
+.cert-chevron {
+  transition: transform 0.25s ease;
+}
+
+.cert-chevron[data-open="true"] {
+  transform: rotate(180deg);
+}
+
+.cert-subs {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.cert-subs[data-open="true"] {
+  max-height: 700px;
+}
+
+.cert-subs-inner {
+  padding: 0 22px 18px;
+}
+
+.cert-sub-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--portfolio-border);
+  font-size: 13px;
+}
+
+.cert-sub-item:last-child {
+  border-bottom: none;
+}
+
+.cert-sub-title {
+  color: var(--fg);
+}
+
+.cert-sub-date {
+  color: var(--fg-muted);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
 .nav-indicator {
   display: inline-block;
   vertical-align: middle;
