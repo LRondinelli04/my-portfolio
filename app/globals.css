@@ -189,6 +189,77 @@
   background: var(--portfolio-accent);
 }
 
+/* Portfolio v2 — Section header + Technologies */
+.section-header-v2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.section-header-v2 .section-header-line {
+  flex: 0 0 28px;
+  height: 1px;
+  background: var(--portfolio-border-mid);
+}
+
+.section-header-v2 .section-header-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--portfolio-accent);
+  font-family: var(--font-head), "Space Grotesk", sans-serif;
+}
+
+.tech-group-label {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.tech-group-label--blue {
+  color: var(--portfolio-accent);
+}
+
+.tech-group-label--teal {
+  color: var(--portfolio-accent2);
+}
+
+.tech-group-label--purple {
+  color: oklch(0.68 0.18 295);
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--portfolio-border);
+  background: var(--bg-card);
+  color: var(--fg-muted);
+  font-size: 12.5px;
+  line-height: 1;
+  transition: border-color 0.18s ease, color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.tech-pill:hover {
+  border-color: var(--portfolio-border-mid);
+  color: var(--fg);
+  background: var(--bg-hover);
+}
+
+.tech-pill-icon {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+
 .nav-indicator {
   display: inline-block;
   vertical-align: middle;

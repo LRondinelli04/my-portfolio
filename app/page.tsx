@@ -7,7 +7,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { MouseAura } from "@/components/MouseAura";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { TechCarousel } from "@/components/TechCarousel";
+import Technologies from "@/components/sections/Technologies";
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
           </AnimatedSection>
           <AnimatedSection>
             <section id="technologies" className="scroll-mt-16">
-              <TechCarousel />
+              <Technologies />
             </section>
           </AnimatedSection>
           <AnimatedSection>
