@@ -69,6 +69,29 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
   }
+
+  :root {
+    /* Portfolio v2 — design tokens */
+    --bg: #09090f;
+    --bg-card: #0f101a;
+    --bg-hover: rgba(20, 22, 34, 0.6);
+
+    --fg: oklch(0.93 0.008 70);
+    --fg-muted: oklch(0.55 0.02 250);
+    --fg-dim: oklch(0.35 0.015 250);
+
+    --portfolio-accent: oklch(0.68 0.22 258);
+    --portfolio-accent-dim: oklch(0.68 0.22 258 / 0.14);
+    --portfolio-accent2: oklch(0.68 0.16 172);
+    --portfolio-accent2-dim: oklch(0.68 0.16 172 / 0.12);
+    --portfolio-green: oklch(0.7 0.22 145);
+
+    --portfolio-border: oklch(1 0 0 / 0.07);
+    --portfolio-border-mid: oklch(1 0 0 / 0.13);
+
+    --portfolio-radius: 12px;
+    --portfolio-radius-sm: 8px;
+  }
 }
 
 @layer base {
