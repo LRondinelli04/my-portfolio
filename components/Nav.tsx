@@ -1,136 +1,130 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Github, Linkedin, Instagram } from "lucide-react";
-import { ModeToggle } from "./ui/toggle-mode";
-import { Badge } from "@/components/ui/badge";
+
+import Image from "next/image";
+import { Github, Linkedin, Instagram, Mail } from "lucide-react";
 import useActiveSection from "@/hooks/useActiveSection";
 
-type NavItem = {
-  name: string;
-  href: string;
-};
+type NavItem = { id: string; label: string };
 
-const SECTION_IDS = [
-  "about",
-  "technologies",
-  "experience",
-  "studies",
-  "projects",
-  "contact",
-] as const;
-
-const navItems: NavItem[] = [
-  { name: "Sobre mí", href: "#about" },
-  { name: "Tecnologías", href: "#technologies" },
-  { name: "Experiencia", href: "#experience" },
-  { name: "Estudios", href: "#studies" },
-  { name: "Proyectos", href: "#projects" },
-  { name: "Contacto", href: "#contact" },
+const NAV_ITEMS: NavItem[] = [
+  { id: "about", label: "Sobre mí" },
+  { id: "technologies", label: "Tecnologías" },
+  { id: "experience", label: "Experiencia" },
+  { id: "studies", label: "Estudios" },
+  { id: "projects", label: "Proyectos" },
+  { id: "contact", label: "Contacto" },
 ];
 
-export default function Nav() {
-  const activeSection = useActiveSection([...SECTION_IDS]);
+const LINKEDIN_URL = "https://www.linkedin.com/in/lucas-rondinelli-9b83a9267/";
+const GITHUB_URL = "https://github.com/LRondinelli04";
+const INSTAGRAM_URL = "https://www.instagram.com/lucasrondinelli_/";
+const EMAIL = "lrondinelli04@gmail.com";
 
-  const getNavItemClasses = (href: string) => {
-    const isActive = activeSection === href.substring(1);
-    return {
-      linkClass: isActive ? "active" : "",
-      indicatorClass: `nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all ${
-        isActive
-          ? "active w-16 bg-foreground h-2"
-          : "group-hover:w-16 group-hover:bg-foreground group-hover:h-px"
-      }`,
-      textClass: `nav-text text-xs font-bold uppercase tracking-widest ${
-        isActive
-          ? "text-foreground"
-          : "text-slate-500 group-hover:text-foreground"
-      }`,
-    };
-  };
+export default function Nav() {
+  const active = useActiveSection(NAV_ITEMS.map((i) => i.id));
 
   return (
-    <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 flex flex-col lg:gap-4">
-      <div className="flex flex-col gap-4 mt-6 lg:mt-0 ">
-        <div className="w-full flex lg:items-center lg:justify-start ">
-          <Avatar className="avatar-glow w-24 lg:w-36 h-auto border-2 border-primary bg-secondary transition-trasnform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary hover:border-2 hover:border-primary">
-            <a
-              href="/pdf/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AvatarImage
-                src="./avatar.png"
-                alt="Foto de perfil de Lucas Rondinelli"
-              />
-              <AvatarFallback className="w-24 h-24 lg:w-36 lg:h-36 rounded-full border-1 border-primary">
-                LR
-              </AvatarFallback>
-            </a>
-          </Avatar>
+    <header
+      className="
+        flex flex-col gap-10
+        lg:sticky lg:top-0 lg:h-screen lg:w-[320px]
+        lg:py-16 lg:justify-between
+        font-body text-[var(--fg)]
+      "
+    >
+      {/* Top: avatar + hero text */}
+      <div className="flex flex-col gap-6">
+        <div className="relative w-[88px] h-[88px]">
+          <Image
+            src="/avatar.png"
+            alt="Lucas Rondinelli"
+            width={88}
+            height={88}
+            priority
+            className="rounded-full object-cover w-full h-full"
+          />
+          <div className="avatar-ring" aria-hidden="true" />
         </div>
-        <h1 className="text-[42px] font-bold lg:text-start">
-          Hola, soy Lucas 👋
-        </h1>
-        <h2 className="text-xl lg:text-start">
-          Estudiante de Licenciatura en Sistemas y Analista Programador
-          Universitario en La Plata, Argentina 🇦🇷.
-        </h2>
-        <a
-          href="https://www.linkedin.com/in/lucas-rondinelli-9b83a9267/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:cursor-pointer w-fit"
-        >
-          <Badge variant="ready">Disponible para trabajar</Badge>
-        </a>
+
+        <div className="flex flex-col gap-2">
+          <h1 className="font-head font-semibold text-4xl leading-[1.05] tracking-tight">
+            Lucas
+            <br />
+            Rondinelli
+          </h1>
+          <p className="text-[15px] text-[var(--fg)] mt-1">
+            Desarrollador Full Stack
+          </p>
+          <p className="text-[13px] text-[var(--fg-muted)]">
+            📍 La Plata, Buenos Aires
+          </p>
+
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              mt-3 inline-flex items-center gap-2 w-fit
+              rounded-full border border-[var(--portfolio-border-mid)]
+              bg-[var(--bg-card)]/60
+              px-3 py-1.5 text-[12px] text-[var(--fg)]
+              hover:border-[oklch(0.7_0.22_145_/_0.5)] transition-colors
+            "
+          >
+            <span className="badge-dot" />
+            Disponible para trabajar
+          </a>
+        </div>
       </div>
-      <nav className="lg:flex hidden">
-        <ul className="flex flex-col w-max text-start gap-6 uppercase text-xs font-medium">
-          {navItems.map((item: NavItem) => {
-            const { linkClass, indicatorClass, textClass } = getNavItemClasses(
-              item.href
-            );
+
+      {/* Vertical nav (desktop only) */}
+      <nav className="hidden lg:block">
+        <ul className="flex flex-col gap-2">
+          {NAV_ITEMS.map((item) => {
+            const isActive = active === item.id;
             return (
-              <li key={item.name} className="group">
-                <a href={item.href} className={`py-3 ${linkClass}`}>
-                  <span className={indicatorClass}></span>
-                  <span className={textClass}>{item.name}</span>
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className={`nav-item-v2 group ${isActive ? "is-active" : ""}`}
+                >
+                  <span className="nav-indicator-v2" />
+                  <span>{item.label}</span>
                 </a>
               </li>
             );
           })}
         </ul>
       </nav>
-      <ul className="flex flex-row gap-6 mt-6 lg:mt-0">
-        <Button variant="outline" size="icon" asChild aria-label="GitHub">
-          <a
-            href="https://github.com/LRondinelli04"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github className="h-[1.2rem] w-[1.2rem]" />
-          </a>
-        </Button>
-        <Button variant="outline" size="icon" asChild aria-label="Instagram">
-          <a
-            href="https://www.instagram.com/lucasrondinelli_/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Instagram className="h-[1.2rem] w-[1.2rem]" />
-          </a>
-        </Button>
-        <Button variant="outline" size="icon" asChild aria-label="LinkedIn">
-          <a
-            href="https://www.linkedin.com/in/lucas-rondinelli-9b83a9267/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin className="h-[1.2rem] w-[1.2rem]" />
-          </a>
-        </Button>
-        <ModeToggle />
+
+      {/* Socials */}
+      <ul className="flex flex-row gap-3">
+        {[
+          { href: GITHUB_URL, label: "GitHub", Icon: Github },
+          { href: LINKEDIN_URL, label: "LinkedIn", Icon: Linkedin },
+          { href: INSTAGRAM_URL, label: "Instagram", Icon: Instagram },
+          { href: `mailto:${EMAIL}`, label: "Email", Icon: Mail },
+        ].map(({ href, label, Icon }) => (
+          <li key={label}>
+            <a
+              href={href}
+              target={href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={
+                href.startsWith("mailto:") ? undefined : "noopener noreferrer"
+              }
+              aria-label={label}
+              className="
+                flex h-9 w-9 items-center justify-center rounded-md
+                border border-[var(--portfolio-border-mid)]
+                text-[var(--fg-muted)]
+                hover:text-[var(--fg)] hover:border-[var(--portfolio-accent)]
+                transition-colors
+              "
+            >
+              <Icon className="h-[18px] w-[18px]" />
+            </a>
+          </li>
+        ))}
       </ul>
     </header>
   );
