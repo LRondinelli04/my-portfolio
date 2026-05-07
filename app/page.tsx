@@ -1,13 +1,13 @@
 import Nav from "@/components/Nav";
-import ExpCard from "@/components/ExpCards";
-import Projects from "@/components/sections/Projects";
+import About from "@/components/sections/About";
+import Technologies from "@/components/sections/Technologies";
+import Experience from "@/components/sections/Experience";
 import Studies from "@/components/sections/Studies";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Projects from "@/components/sections/Projects";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
 import { MouseAura } from "@/components/MouseAura";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import Technologies from "@/components/sections/Technologies";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <MouseAura />
       <div className="lg:flex lg:items-start lg:gap-0">
         <Nav />
-        <main className="flex flex-col gap-8 pt-6 lg:pt-[60px] lg:pl-14 lg:flex-1 lg:py-[60px]">
+        <main className="flex flex-col gap-14 pt-6 lg:pt-[60px] lg:pl-14 lg:flex-1 lg:py-[60px]">
           <AnimatedSection>
             <section id="about" className="scroll-mt-16">
               <About />
@@ -28,7 +28,7 @@ export default function Home() {
           </AnimatedSection>
           <AnimatedSection>
             <section id="experience" className="scroll-mt-16">
-              <ExpCard />
+              <Experience />
             </section>
           </AnimatedSection>
           <AnimatedSection>
