@@ -84,6 +84,10 @@ export const TECH_GROUPS: TechGroup[] = [
         name: "Git",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
       },
+      {
+        name: "GitHub",
+        icon: "https://cdn-icons-png.flaticon.com/512/15452/15452650.png",
+      },
     ],
   },
 ];

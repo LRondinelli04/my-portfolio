@@ -89,4 +89,10 @@ export const technologies: Technology[] = [
     iconUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
+  {
+    name: "GitHub",
+    url: "https://github.com/",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  }
 ];
