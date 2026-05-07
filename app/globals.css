@@ -131,7 +131,8 @@
     oklch(0.68 0.16 172),
     oklch(0.68 0.22 258)
   );
-  -webkit-mask: linear-gradient(#000 0 0) content-box,
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -166,7 +167,10 @@
   width: 24px;
   height: 1px;
   background: var(--fg-dim);
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .nav-item-v2:hover {
@@ -244,7 +248,9 @@
   color: var(--fg-muted);
   font-size: 12.5px;
   line-height: 1;
-  transition: border-color 0.18s ease, color 0.18s ease,
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease,
     background-color 0.18s ease;
 }
 
@@ -361,7 +367,9 @@
   border: 1px solid var(--portfolio-accent-dim);
   color: var(--portfolio-accent);
   background: var(--portfolio-accent-dim);
-  transition: background-color 0.18s ease, border-color 0.18s ease;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .cert-btn:hover {
@@ -381,7 +389,9 @@
   color: var(--fg-muted);
   background: transparent;
   cursor: pointer;
-  transition: color 0.18s ease, border-color 0.18s ease;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .cert-expand-btn:hover {
@@ -457,7 +467,9 @@
   border-radius: var(--portfolio-radius);
   background: var(--bg-card);
   overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease,
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
@@ -570,7 +582,9 @@
   border: 1px solid var(--portfolio-border-mid);
   color: var(--fg-muted);
   background: transparent;
-  transition: color 0.18s ease, border-color 0.18s ease;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .proj-icon-btn:hover {
@@ -584,11 +598,38 @@
   line-height: 1.55;
 }
 
+.proj-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .proj-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 4px;
+}
+
+.proj-details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: var(--portfolio-radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--portfolio-accent-dim);
+  color: var(--portfolio-accent);
+  background: var(--portfolio-accent-dim);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.proj-details-link:hover {
+  background: oklch(0.68 0.22 258 / 0.22);
+  border-color: var(--portfolio-accent);
 }
 
 .tag-blue {
@@ -601,6 +642,83 @@
   color: var(--portfolio-accent);
   background: var(--portfolio-accent-dim);
   border: 1px solid var(--portfolio-accent-dim);
+}
+
+/* Portfolio v2 — Project footer + details sheet */
+.proj-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.proj-details-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: var(--portfolio-radius-sm);
+  border: 1px solid var(--portfolio-border-mid);
+  background: transparent;
+  color: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+  flex-shrink: 0;
+}
+
+.proj-details-trigger:hover {
+  color: var(--portfolio-accent);
+  border-color: var(--portfolio-accent);
+  background: var(--portfolio-accent-dim);
+}
+
+.proj-details-block-title {
+  font-family: var(--font-head), "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--portfolio-accent);
+}
+
+.proj-details-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.proj-details-bullet {
+  flex-shrink: 0;
+  margin-top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--portfolio-accent);
+}
+
+.proj-details-data {
+  color: var(--fg);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.proj-details-sublist {
+  margin-top: 6px;
+  padding-left: 14px;
+  list-style: disc;
+  color: var(--fg-muted);
+  font-size: 12.5px;
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 /* Portfolio v2 — About */
@@ -683,11 +801,7 @@
   bottom: 6px;
   left: 4px;
   width: 1px;
-  background: linear-gradient(
-    to bottom,
-    var(--portfolio-accent),
-    transparent
-  );
+  background: linear-gradient(to bottom, var(--portfolio-accent), transparent);
 }
 
 .timeline-entry {
@@ -764,7 +878,9 @@
   font-weight: 500;
   color: var(--fg-muted);
   border: 1px solid var(--portfolio-border-mid);
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .cv-link:hover {
@@ -807,7 +923,9 @@
   color: #fff;
   font-size: 14px;
   font-weight: 500;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .contact-primary:hover {
@@ -825,7 +943,9 @@
   color: var(--fg-muted);
   font-size: 13px;
   font-weight: 500;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .contact-secondary:hover {
