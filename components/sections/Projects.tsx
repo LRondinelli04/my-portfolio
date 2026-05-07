@@ -1,9 +1,80 @@
 "use client";
 
 import Image from "next/image";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Info } from "lucide-react";
 import { jobProjects, type Project } from "@/components/data/projectsData";
 import SectionHeader from "@/components/sections/SectionHeader";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
+function ProjectDetailsSheet({ project }: { project: Project }) {
+  if (!project.details) return null;
+
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <button
+          type="button"
+          className="proj-details-trigger"
+          onClick={(e) => e.stopPropagation()}
+          aria-label={`Ver detalles de ${project.title}`}
+        >
+          <Info className="h-[14px] w-[14px]" />
+          Ver detalles
+        </button>
+      </SheetTrigger>
+      <SheetContent
+        side="right"
+        className="overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <SheetHeader>
+          <SheetTitle>{project.title}</SheetTitle>
+          <SheetDescription>{project.description}</SheetDescription>
+        </SheetHeader>
+
+        <div className="flex flex-col gap-7 p-6 font-body">
+          {project.details.map((block) => (
+            <section key={block.title} className="flex flex-col gap-3">
+              <h3 className="proj-details-block-title">{block.title}</h3>
+              <ul className="flex flex-col gap-2.5">
+                {block.items.map((item) => (
+                  <li key={item.data} className="proj-details-item">
+                    <span className="proj-details-bullet" aria-hidden="true" />
+                    <div className="flex-1">
+                      <p className="proj-details-data">{item.data}</p>
+                      {item.subData && item.subData.length > 0 && (
+                        <ul className="proj-details-sublist">
+                          {item.subData.map((sub) => (
+                            <li key={sub}>{sub}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+
+          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--portfolio-border)] mt-2">
+            {project.skills.map((s) => (
+              <span key={s.name} className="tag-blue">
+                {s.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+}
 
 function ProjectCard({ project }: { project: Project }) {
   const clickable = Boolean(project.link);
@@ -68,12 +139,15 @@ function ProjectCard({ project }: { project: Project }) {
 
         <p className="proj-desc">{project.description}</p>
 
-        <div className="proj-tags">
-          {project.skills.map((s) => (
-            <span key={s.name} className="tag-blue">
-              {s.name}
-            </span>
-          ))}
+        <div className="proj-footer">
+          <div className="proj-tags">
+            {project.skills.map((s) => (
+              <span key={s.name} className="tag-blue">
+                {s.name}
+              </span>
+            ))}
+          </div>
+          {project.details && <ProjectDetailsSheet project={project} />}
         </div>
       </div>
     </div>
