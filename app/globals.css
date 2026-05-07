@@ -413,7 +413,6 @@
 
 .cert-sub-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 14px;
   padding: 10px 0;
@@ -426,6 +425,7 @@
 }
 
 .cert-sub-title {
+  flex: 1;
   color: var(--fg);
 }
 
@@ -433,6 +433,7 @@
   color: var(--fg-muted);
   font-size: 12px;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 /* Portfolio v2 — Projects */

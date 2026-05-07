@@ -76,6 +76,21 @@ export default function Studies() {
                       <div key={sub.title} className="cert-sub-item">
                         <span className="cert-sub-title">{sub.title}</span>
                         <span className="cert-sub-date">{sub.date}</span>
+                        {sub.link ? (
+                          <a
+                            href={sub.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="cert-btn"
+                          >
+                            Ver certificado
+                            <ExternalLink className="h-[13px] w-[13px]" />
+                          </a>
+                        ) : (
+                          <span className="cert-sub-no-link">
+                            Sin enlace (temporal)
+                          </span>
+                        )}
                       </div>
                     ))}
                   </div>
