@@ -12,9 +12,9 @@ export default function Contact() {
       </p>
 
       <div className="contact-options">
-        <a href="mailto:lrondinelli04@gmail.com" className="contact-primary">
+        <a href="mailto:lrondinelli2004@gmail.com" className="contact-primary">
           <Mail className="h-[16px] w-[16px]" />
-          lrondinelli04@gmail.com
+          lrondinelli2004@gmail.com
         </a>
         <a
           href="https://www.linkedin.com/in/lucas-rondinelli-9b83a9267/"

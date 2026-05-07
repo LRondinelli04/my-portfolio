@@ -18,7 +18,7 @@ const NAV_ITEMS: NavItem[] = [
 const LINKEDIN_URL = "https://www.linkedin.com/in/lucas-rondinelli-9b83a9267/";
 const GITHUB_URL = "https://github.com/LRondinelli04";
 const INSTAGRAM_URL = "https://www.instagram.com/lucasrondinelli_/";
-const EMAIL = "lrondinelli04@gmail.com";
+const EMAIL = "lrondinelli2004@gmail.com";
 
 export default function Nav() {
   const active = useActiveSection(NAV_ITEMS.map((i) => i.id));
