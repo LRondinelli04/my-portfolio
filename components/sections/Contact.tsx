@@ -12,7 +12,12 @@ export default function Contact() {
       </p>
 
       <div className="contact-options">
-        <a href="mailto:lrondinelli2004@gmail.com" className="contact-primary">
+        <a
+          href="mailto:lrondinelli2004@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="contact-primary"
+        >
           <Mail className="h-[16px] w-[16px]" />
           lrondinelli2004@gmail.com
         </a>

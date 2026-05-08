@@ -108,10 +108,8 @@ export default function Nav() {
           <li key={label}>
             <a
               href={href}
-              target={href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={
-                href.startsWith("mailto:") ? undefined : "noopener noreferrer"
-              }
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={label}
               className="
                 flex h-9 w-9 items-center justify-center rounded-md
