@@ -12,14 +12,14 @@ const useActiveSection = (ids: string[]): string => {
         ([entry]) => {
           if (entry.isIntersecting) setActive(id);
         },
-        { rootMargin: "-40% 0px -55% 0px" }
+        { rootMargin: "-30% 0px -45% 0px" },
       );
       obs.observe(el);
       observers.push(obs);
     });
     return () => observers.forEach((o) => o.disconnect());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [...ids]);
 
   return active;
 };

@@ -12,6 +12,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 function ProjectDetailsSheet({ project }: { project: Project }) {
   if (!project.details) return null;
@@ -62,6 +69,38 @@ function ProjectDetailsSheet({ project }: { project: Project }) {
               </ul>
             </section>
           ))}
+
+          {/* Galería de imágenes */}
+          {project.images && project.images.length > 0 && (
+            <section className="flex flex-col gap-3">
+              <h3 className="proj-details-block-title">
+                Galería ({project.images.length})
+              </h3>
+              <Carousel
+                orientation="vertical"
+                opts={{ align: "start", loop: true }}
+                className="w-full px-1 py-6"
+              >
+                <CarouselContent className="h-[280px]">
+                  {project.images.map((img, index) => (
+                    <CarouselItem key={img.src} className="basis-full pt-2">
+                      <div className="relative h-full w-full overflow-hidden rounded-[var(--portfolio-radius)] border border-[var(--portfolio-border)] bg-[var(--bg-card)]">
+                        <Image
+                          src={img.src}
+                          alt={img.alt || `${project.title} – Imagen ${index + 1}`}
+                          fill
+                          sizes="(max-width: 860px) 100vw, 480px"
+                          className="object-contain"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </section>
+          )}
 
           <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--portfolio-border)] mt-2">
             {project.skills.map((s) => (
