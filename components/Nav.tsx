@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Github, Linkedin, Instagram, Mail } from "lucide-react";
 import useActiveSection from "@/hooks/useActiveSection";
+import { Badge } from "@/components/ui/badge";
 
 type NavItem = { id: string; label: string };
 
@@ -34,12 +35,12 @@ export default function Nav() {
     >
       {/* Top: avatar + hero text */}
       <div className="flex flex-col gap-6">
-        <div className="relative w-[88px] h-[88px]">
+        <div className="relative w-[150px] h-[150px]">
           <Image
             src="/avatar.png"
             alt="Lucas Rondinelli"
-            width={88}
-            height={88}
+            width={150}
+            height={150}
             priority
             className="rounded-full object-cover w-full h-full"
           />
@@ -55,7 +56,7 @@ export default function Nav() {
           <p className="text-[15px] text-[var(--fg)] mt-1">
             Desarrollador Full Stack
           </p>
-          <p className="text-[13px] text-[var(--fg-muted)]">
+          <p className="text-[14px] text-[var(--fg-muted)]">
             📍 La Plata, Buenos Aires
           </p>
 
@@ -63,17 +64,21 @@ export default function Nav() {
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              mt-3 inline-flex items-center gap-2 w-fit
-              rounded-full border border-[var(--portfolio-border-mid)]
-              bg-[var(--bg-card)]/60
-              px-3 py-1.5 text-[12px] text-[var(--fg)]
-              hover:border-[oklch(0.7_0.22_145_/_0.5)] transition-colors
-            "
+            className="button-disponible"
           >
-            <span className="badge-dot" />
-            Disponible para trabajar
+            <Badge variant="ready">
+              <span className="badge-dot--ready mr-2" /> Disponible para
+              trabajar
+            </Badge>
           </a>
+
+          {/* 
+            <Badge variant="notReady">
+              <span className="badge-dot--notReady mr-2" /> No disponible para
+              trabajar
+            </Badge>
+    
+          */}
         </div>
       </div>
 
