@@ -22,10 +22,9 @@ export default function Experience() {
             <span className="timeline-date">Jun 2024 — Actualidad</span>
           </div>
           <p className="timeline-desc">
-            Pasantía en colaboración con la Facultad de Informática (UNLP).
-            Desarrollo de aplicaciones Back-End y Front-End con tecnologías
-            modernas, participando en soluciones que optimizan los procesos
-            internos de la institución.
+            Desarrollo y mantenimiento de aplicaciones Back-End y Front-End con
+            tecnologías modernas, participando en soluciones que optimizan los
+            procesos internos de la institución.
           </p>
           <div className="timeline-tags">
             {TAGS.map((t) => (
