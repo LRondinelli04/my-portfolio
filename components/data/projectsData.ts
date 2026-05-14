@@ -6,7 +6,10 @@ export type Project = {
   skills: { name: string; link: string }[];
   link?: string;
   github?: string;
+  /** Ocupa fila completa en la grilla de /proyectos. */
   highlight?: boolean;
+  /** Se muestra en el carrusel 3D del home. */
+  featured?: boolean;
   details?: {
     title: string;
     items: {
@@ -133,6 +136,7 @@ export const jobProjects: Project[] = [
       { name: "C#", link: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
     ],
     highlight: true,
+    featured: true,
     /* link: "https://app.mtopswap.com", */
   },
   {
@@ -154,6 +158,7 @@ export const jobProjects: Project[] = [
 
     link: "https://agent-69fb385c348bc34d2de--gestor-de-presupuesto.netlify.app",
     github: "https://github.com/LRondinelli04/Presupuesto",
+    featured: true,
   },
   {
     slug: "it-resto",
@@ -175,6 +180,7 @@ export const jobProjects: Project[] = [
     ],
     link: "https://eduit-resto.netlify.app/",
     github: "https://github.com/LRondinelli04/IT_Resto",
+    featured: true,
   },
   {
     slug: "preguntas-y-respuestas",
@@ -212,5 +218,6 @@ export const jobProjects: Project[] = [
     ],
     link: "https://lucasrondinelli.netlify.app/",
     github: "https://github.com/LRondinelli04/my-portfolio",
+    featured: true,
   },
 ];

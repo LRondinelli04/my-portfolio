@@ -11,14 +11,14 @@ import ProjectDetailsModal from "@/components/ProjectDetailsModal";
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
 
-  const top3 = jobProjects.slice(0, 3);
-  const remaining = jobProjects.length - top3.length;
+  const featured = jobProjects.filter((p) => p.featured); // Proyectos destacados para el carrusel del home
+  const remaining = jobProjects.length - featured.length;
 
   return (
     <div>
       <SectionHeader label="Proyectos" />
 
-      <Projects3DCarousel projects={top3} onDetails={setSelected} />
+      <Projects3DCarousel projects={featured} onDetails={setSelected} />
 
       <div className="cta-band">
         <div>
