@@ -94,7 +94,7 @@ export default function Nav() {
             return (
               <li key={item.id}>
                 <a
-                  href={`#${item.id}`}
+                  href={`/#${item.id}`}
                   className={`nav-item-v2 group ${isActive ? "is-active" : ""}`}
                 >
                   <span className="nav-indicator-v2" />

@@ -19,68 +19,6 @@ export type Project = {
 
 export const jobProjects: Project[] = [
   {
-    slug: "gestor-presupuesto",
-    imagePath: "/projects/Presupuesto.jpg",
-    title: "Gestor de Presupuesto",
-    description:
-      "Aplicación web para gestionar un presupuesto y sus gastos, desarrollada con Angular. Permite ingresar un presupuesto inicial, agregar servicios con sus respectivos gastos, sumar al presupuesto existente y reiniciarlo.",
-    skills: [
-      { name: "Angular", link: "https://angular.dev/" },
-      { name: "Typescript", link: "https://www.typescriptlang.org/" },
-      {
-        name: "HTML",
-        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-      },
-      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-      { name: "Bootstrap", link: "https://getbootstrap.com/" },
-    ],
-
-    link: "https://agent-69fb385c348bc34d2de--gestor-de-presupuesto.netlify.app",
-    github: "https://github.com/LRondinelli04/Presupuesto",
-  },
-  {
-    slug: "preguntas-y-respuestas",
-    imagePath: "/projects/TPFinalJS.jpg",
-    title: "Preguntas y Respuestas",
-    description:
-      "Juego interactivo para dos jugadores, diseñado con JavaScript, HTML y CSS, que utiliza Socket.io para establecer una conexión local. Esta implementación garantiza una experiencia de juego fluida y en tiempo real.",
-    skills: [
-      {
-        name: "JavaScript",
-        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-      },
-      {
-        name: "HTML",
-        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-      },
-      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-      { name: "Bootstrap", link: "https://getbootstrap.com/" },
-    ],
-
-    github: "https://github.com/LRondinelli04/Preguntas-y-Respuestas",
-  },
-  {
-    slug: "it-resto",
-    imagePath: "/projects/ITResto.jpg",
-    title: "IT Resto",
-    description:
-      "Página web responsive para un restaurante, que permite visualizar promociones, menú, información de contacto y un formulario para realizar pedidos de delivery. Desarrollada con HTML, CSS, SCSS y JavaScript para ofrecer una experiencia de usuario atractiva y funcional en cualquier dispositivo.",
-    skills: [
-      {
-        name: "HTML",
-        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-      },
-      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-      { name: "SCSS", link: "https://sass-lang.com/" },
-      {
-        name: "JavaScript",
-        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-      },
-    ],
-    link: "https://eduit-resto.netlify.app/",
-    github: "https://github.com/LRondinelli04/IT_Resto",
-  },
-  {
     slug: "monitoreo-servicios",
     imagePath: "/projects/monitoreo/m1.jpg",
     images: [
@@ -196,6 +134,68 @@ export const jobProjects: Project[] = [
     ],
     highlight: true,
     /* link: "https://app.mtopswap.com", */
+  },
+  {
+    slug: "gestor-presupuesto",
+    imagePath: "/projects/Presupuesto.jpg",
+    title: "Gestor de Presupuesto",
+    description:
+      "Aplicación web para gestionar un presupuesto y sus gastos, desarrollada con Angular. Permite ingresar un presupuesto inicial, agregar servicios con sus respectivos gastos, sumar al presupuesto existente y reiniciarlo.",
+    skills: [
+      { name: "Angular", link: "https://angular.dev/" },
+      { name: "Typescript", link: "https://www.typescriptlang.org/" },
+      {
+        name: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      { name: "Bootstrap", link: "https://getbootstrap.com/" },
+    ],
+
+    link: "https://agent-69fb385c348bc34d2de--gestor-de-presupuesto.netlify.app",
+    github: "https://github.com/LRondinelli04/Presupuesto",
+  },
+  {
+    slug: "it-resto",
+    imagePath: "/projects/ITResto.jpg",
+    title: "IT Resto",
+    description:
+      "Página web responsive para un restaurante, que permite visualizar promociones, menú, información de contacto y un formulario para realizar pedidos de delivery. Desarrollada con HTML, CSS, SCSS y JavaScript para ofrecer una experiencia de usuario atractiva y funcional en cualquier dispositivo.",
+    skills: [
+      {
+        name: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      { name: "SCSS", link: "https://sass-lang.com/" },
+      {
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      },
+    ],
+    link: "https://eduit-resto.netlify.app/",
+    github: "https://github.com/LRondinelli04/IT_Resto",
+  },
+  {
+    slug: "preguntas-y-respuestas",
+    imagePath: "/projects/TPFinalJS.jpg",
+    title: "Preguntas y Respuestas",
+    description:
+      "Juego interactivo para dos jugadores, diseñado con JavaScript, HTML y CSS, que utiliza Socket.io para establecer una conexión local. Esta implementación garantiza una experiencia de juego fluida y en tiempo real.",
+    skills: [
+      {
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      },
+      {
+        name: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      { name: "Bootstrap", link: "https://getbootstrap.com/" },
+    ],
+
+    github: "https://github.com/LRondinelli04/Preguntas-y-Respuestas",
   },
   {
     slug: "mi-portafolio",

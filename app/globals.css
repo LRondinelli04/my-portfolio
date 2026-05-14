@@ -1434,3 +1434,56 @@
   color: var(--portfolio-accent);
   background: var(--portfolio-accent-dim);
 }
+
+/* Portfolio v2 — Fase 7: CTA band ("Ver todos los proyectos") */
+.cta-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  padding: 20px 22px;
+  border: 1px dashed var(--portfolio-border-mid);
+  border-radius: var(--portfolio-radius);
+  background: linear-gradient(
+    135deg,
+    var(--portfolio-accent-dim),
+    transparent 60%
+  );
+}
+
+.cta-band-title {
+  font-family: var(--font-head), "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--fg);
+}
+
+.cta-band-sub {
+  font-size: 13px;
+  color: var(--fg-muted);
+  margin-top: 2px;
+}
+
+.cta-band-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: var(--portfolio-radius-sm);
+  background: var(--portfolio-accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.cta-band-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}

@@ -1,100 +1,109 @@
 "use client";
+
 import Image from "next/image";
-import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { MoveUpRight } from "lucide-react";
-import { GitHubIcon } from "@/components/ui/GitHub";
-import { Button } from "@/components/ui/button";
+import { Github, ExternalLink, Info } from "lucide-react";
 import type { Project } from "@/components/data/projectsData";
 
 interface ProjectCardProps {
   project: Project;
+  isWide?: boolean;
+  onDetails?: (project: Project) => void;
   priority?: boolean;
 }
 
-export function ProjectCard({ project, priority = false }: ProjectCardProps) {
-  const cardContent = (
-    <Card className="group lg:p-6 p-5 mb-4 flex flex-col lg:flex-row w-full min-h-fit gap-0 lg:gap-5 border-transparent hover:border dark:lg:hover:border-t-blue-900 dark:lg:hover:bg-slate-800/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:drop-shadow-lg lg:hover:bg-slate-100/50 lg:hover:border-t-blue-200 duration-300 lg:hover:scale-105 lg:hover:shadow-lg">
-      <CardHeader className="h-full w-full lg:w-1/3 mb-4 p-0">
+export function ProjectCard({
+  project,
+  isWide = false,
+  onDetails,
+  priority = false,
+}: ProjectCardProps) {
+  const clickable = Boolean(project.link);
+
+  const handleClick = () => {
+    if (project.link) {
+      window.open(project.link, "_blank", "noopener,noreferrer");
+    }
+  };
+
+  const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!clickable) return;
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
+  return (
+    <div
+      className={`proj-card${isWide ? " proj-card--wide" : ""}`}
+      data-clickable={clickable}
+      onClick={clickable ? handleClick : undefined}
+      onKeyDown={clickable ? handleKey : undefined}
+      role={clickable ? "link" : undefined}
+      tabIndex={clickable ? 0 : undefined}
+      aria-label={clickable ? `Abrir ${project.title}` : undefined}
+    >
+      <div className="proj-img-wrap">
         <Image
           src={project.imagePath}
-          alt={`Screenshot of ${project.title}`}
-          width={1920}
-          height={1080}
+          alt={project.title}
+          fill
           priority={priority}
-          className="bg-[#141414] mt-2 border border-muted-foreground rounded-[0.5rem]"
+          sizes="(max-width: 860px) 100vw, (max-width: 1180px) 50vw, 560px"
+          className="proj-img"
         />
-      </CardHeader>
-      <CardContent className="flex flex-col p-0 w-full lg:w-2/3">
-        <div className="flex items-center justify-between">
-          <p className="text-primary font-bold">
-            {project.title}{" "}
-            <MoveUpRight className="ml-1 inline-block h-5 w-5 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transition-none" />
-          </p>
+        {clickable && (
+          <div className="proj-img-overlay">
+            <span className="proj-overlay-text">
+              Abrir proyecto <ExternalLink className="h-[13px] w-[13px]" />
+            </span>
+          </div>
+        )}
+      </div>
+
+      <div className="proj-body">
+        <div className="proj-header">
+          <p className="proj-title">{project.title}</p>
           {project.github && (
-            <Button
-              variant="outline"
-              size="icon"
-              aria-label={`Ver repositorio de ${project.title} en GitHub`}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                window.open(project.github, "_blank", "noopener,noreferrer");
-              }}
-            >
-              <GitHubIcon />
-            </Button>
-          )}
-        </div>
-        <CardDescription className="py-3 text-muted-foreground">
-          {project.description}
-        </CardDescription>
-        <CardFooter className="p-0 flex flex-wrap gap-2">
-          {project.skills.map((skill, i) => (
             <a
-              href={skill.link}
-              key={i}
+              href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:scale-105 transition-transform duration-200"
-              title={`Ver más sobre ${skill.name}`}
+              aria-label={`${project.title} en GitHub`}
+              className="proj-icon-btn"
               onClick={(e) => e.stopPropagation()}
             >
-              <Badge variant="readyBlue">{skill.name}</Badge>
+              <Github className="h-[16px] w-[16px]" />
             </a>
-          ))}
-          {project.details && (
-            <Link
-              href={`/projects/${project.slug}`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Button>Ver detalles</Button>
-            </Link>
           )}
-        </CardFooter>
-      </CardContent>
-    </Card>
+        </div>
+
+        <p className="proj-desc">{project.description}</p>
+
+        <div className="proj-footer">
+          <div className="proj-tags">
+            {project.skills.map((s) => (
+              <span key={s.name} className="tag-blue">
+                {s.name}
+              </span>
+            ))}
+          </div>
+          {project.details && onDetails && (
+            <button
+              type="button"
+              className="proj-details-trigger"
+              aria-label={`Ver detalles de ${project.title}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onDetails(project);
+              }}
+            >
+              <Info className="h-[14px] w-[14px]" />
+              Ver detalles
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
   );
-
-  if (project.link) {
-    return (
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:cursor-pointer"
-      >
-        {cardContent}
-      </a>
-    );
-  }
-
-  return cardContent;
 }
