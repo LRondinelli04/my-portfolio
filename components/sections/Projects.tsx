@@ -11,7 +11,7 @@ import ProjectDetailsModal from "@/components/ProjectDetailsModal";
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
 
-  const featured = jobProjects.filter((p) => p.featured); // Proyectos destacados para el carrusel del home
+  const featured = jobProjects.filter((p) => p.featured); // Proyectos destacados para el carrusel del home (IMPORTANTE: SOPORTA MÁXIMO 3 PROYECTOS)
   const remaining = jobProjects.length - featured.length;
 
   return (

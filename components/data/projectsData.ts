@@ -158,7 +158,6 @@ export const jobProjects: Project[] = [
 
     link: "https://agent-69fb385c348bc34d2de--gestor-de-presupuesto.netlify.app",
     github: "https://github.com/LRondinelli04/Presupuesto",
-    featured: true,
   },
   {
     slug: "it-resto",
@@ -180,7 +179,6 @@ export const jobProjects: Project[] = [
     ],
     link: "https://eduit-resto.netlify.app/",
     github: "https://github.com/LRondinelli04/IT_Resto",
-    featured: true,
   },
   {
     slug: "preguntas-y-respuestas",
@@ -202,6 +200,7 @@ export const jobProjects: Project[] = [
     ],
 
     github: "https://github.com/LRondinelli04/Preguntas-y-Respuestas",
+    featured: true,
   },
   {
     slug: "mi-portafolio",
