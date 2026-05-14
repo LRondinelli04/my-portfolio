@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -23,10 +23,26 @@ export default function Projects3DCarousel({ projects, onDetails }: Props) {
   const startXRef = useRef<number | null>(null);
   const draggedRef = useRef(false);
 
-  const last = projects.length - 1;
+  // Guarda el `active` previo para detectar qué tarjeta "envuelve" (wrap)
+  // y evitar que cruce todo el escenario al saltar de un extremo al otro.
+  const prevActiveRef = useRef(active);
+  useEffect(() => {
+    prevActiveRef.current = active;
+  }, [active]);
 
-  const go = (dir: number) =>
-    setActive((a) => Math.min(last, Math.max(0, a + dir)));
+  const n = projects.length;
+
+  // Loop infinito: el índice da la vuelta sin tope.
+  const go = (dir: number) => setActive((a) => (a + dir + n) % n);
+
+  // Offset normalizado al rango más corto (-n/2, n/2] para que cada tarjeta
+  // tome el camino más cercano alrededor del círculo.
+  const wrappedOffset = (raw: number) => {
+    let o = raw;
+    if (o > n / 2) o -= n;
+    if (o < -n / 2) o += n;
+    return o;
+  };
 
   const handlePointerDown = (e: React.PointerEvent) => {
     startXRef.current = e.clientX;
@@ -70,9 +86,13 @@ export default function Projects3DCarousel({ projects, onDetails }: Props) {
       >
         <div className="cf-track">
           {projects.map((project, i) => {
-            const offset = i - active;
+            const offset = wrappedOffset(i - active);
+            const prevOffset = wrappedOffset(i - prevActiveRef.current);
             const abs = Math.abs(offset);
             const isCenter = offset === 0;
+            // La tarjeta que salta de un extremo al otro se teletransporta
+            // (sin transición) en vez de cruzar el centro.
+            const isWrapping = Math.abs(offset - prevOffset) > 1;
 
             const tx = offset * 58;
             const ry = offset * -28;
@@ -91,6 +111,7 @@ export default function Projects3DCarousel({ projects, onDetails }: Props) {
                   filter: `blur(${blur}px)`,
                   zIndex: 10 - abs,
                   pointerEvents: abs >= 2 ? "none" : "auto",
+                  ...(isWrapping ? { transition: "none" } : {}),
                 }}
                 onClick={() => {
                   if (draggedRef.current) {
@@ -174,7 +195,6 @@ export default function Projects3DCarousel({ projects, onDetails }: Props) {
           type="button"
           className="cf-nav-btn"
           aria-label="Proyecto anterior"
-          disabled={active === 0}
           onClick={() => go(-1)}
         >
           <ChevronLeft className="h-[18px] w-[18px]" />
@@ -198,7 +218,6 @@ export default function Projects3DCarousel({ projects, onDetails }: Props) {
           type="button"
           className="cf-nav-btn"
           aria-label="Proyecto siguiente"
-          disabled={active === last}
           onClick={() => go(1)}
         >
           <ChevronRight className="h-[18px] w-[18px]" />
