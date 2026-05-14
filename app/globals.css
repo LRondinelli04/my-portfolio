@@ -1034,3 +1034,403 @@
 .dark .group .nav-indicator.active {
   background-color: #e2e8f0;
 }
+
+/* Portfolio v2 — Fase 7: 3D coverflow carousel */
+.cf-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cf-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  perspective: 1400px;
+  outline: none;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.cf-stage:focus-visible {
+  box-shadow: 0 0 0 2px var(--portfolio-accent);
+  border-radius: var(--portfolio-radius);
+}
+
+.cf-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.cf-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  height: 440px;
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius);
+  background: var(--bg-card);
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+  will-change: transform, opacity, filter;
+  transition:
+    transform 0.55s cubic-bezier(0.25, 0.8, 0.3, 1.1),
+    opacity 0.4s ease,
+    filter 0.4s ease;
+}
+
+.cf-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cf-card-img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.cf-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.cf-card-title {
+  font-family: var(--font-head), "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--fg);
+  line-height: 1.25;
+}
+
+.cf-card-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cf-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cf-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.cf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--portfolio-radius-sm);
+  font-size: 12.5px;
+  font-weight: 500;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.cf-btn--primary {
+  flex: 1;
+  background: var(--portfolio-accent);
+  color: #fff;
+}
+
+.cf-btn--primary:hover {
+  opacity: 0.9;
+}
+
+.cf-btn--secondary {
+  flex: 1;
+  border: 1px solid var(--portfolio-border-mid);
+  color: var(--fg-muted);
+  cursor: pointer;
+}
+
+.cf-btn--secondary:hover {
+  border-color: var(--portfolio-accent);
+  color: var(--portfolio-accent);
+  background: var(--portfolio-accent-dim);
+}
+
+.cf-btn--icon {
+  width: 36px;
+  padding: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--portfolio-border-mid);
+  color: var(--fg-muted);
+}
+
+.cf-btn--icon:hover {
+  border-color: var(--portfolio-accent);
+  color: var(--fg);
+}
+
+.cf-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.cf-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  border: 1px solid var(--portfolio-border-mid);
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.cf-nav-btn:hover:not(:disabled) {
+  color: var(--fg);
+  border-color: var(--portfolio-accent);
+}
+
+.cf-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cf-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cf-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--portfolio-border-mid);
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.cf-dot--active {
+  width: 24px;
+  background: var(--portfolio-accent);
+}
+
+.cf-help {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--fg-dim);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .cf-stage {
+    height: 440px;
+  }
+  .cf-card {
+    width: 280px;
+    height: 400px;
+  }
+  .cf-card-img {
+    height: 160px;
+  }
+}
+
+/* Portfolio v2 — Fase 7: Project details modal */
+@keyframes modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-box-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 6, 12, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: modal-overlay-in 0.2s ease;
+}
+
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 760px;
+  max-height: 88vh;
+  border: 1px solid var(--portfolio-border-mid);
+  border-radius: 16px;
+  background: var(--bg-card);
+  overflow: hidden;
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.8);
+  animation: modal-box-in 0.35s cubic-bezier(0.25, 0.8, 0.3, 1.1);
+}
+
+.modal-hero {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.modal-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--bg-card) 0%,
+    rgba(15, 16, 26, 0) 55%
+  );
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px 28px 28px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  font-family: var(--font-body), "DM Sans", sans-serif;
+}
+
+.modal-title {
+  font-family: var(--font-head), "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.modal-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.modal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--portfolio-radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.modal-link--primary {
+  background: var(--portfolio-accent);
+  color: #fff;
+}
+
+.modal-link--primary:hover {
+  opacity: 0.9;
+}
+
+.modal-link--secondary {
+  border: 1px solid var(--portfolio-border-mid);
+  color: var(--fg-muted);
+}
+
+.modal-link--secondary:hover {
+  border-color: var(--portfolio-accent);
+  color: var(--portfolio-accent);
+  background: var(--portfolio-accent-dim);
+}
