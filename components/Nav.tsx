@@ -27,6 +27,7 @@ export default function Nav() {
   return (
     <header
       className="
+        header-v2
         flex flex-col gap-10
         lg:sticky lg:top-0 lg:h-screen lg:w-[320px]
         lg:py-16 lg:justify-between
@@ -48,10 +49,13 @@ export default function Nav() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h1 className="font-head font-semibold text-4xl leading-[1.05] tracking-tight">
+          <h1 className="hidden font-head font-semibold text-4xl leading-[1.05] tracking-tight lg:block">
             Lucas
             <br />
             Rondinelli
+          </h1>
+          <h1 className="font-head font-semibold text-4xl leading-[1.05] tracking-tight lg:hidden">
+              Lucas Rondinelli
           </h1>
           <p className="text-[15px] text-[var(--fg)] mt-1">
             Desarrollador Full Stack

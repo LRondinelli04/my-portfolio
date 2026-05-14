@@ -85,7 +85,7 @@
     --portfolio-accent2: oklch(0.68 0.16 172);
     --portfolio-accent2-dim: oklch(0.68 0.16 172 / 0.12);
     /* --portfolio-green: oklch(0.7 0.22 145); */
-    --portfolio-green:#399D83;
+    --portfolio-green: #399d83;
     --portfolio-red: oklch(0.68 0.18 25);
 
     --portfolio-border: oklch(1 0 0 / 0.07);
@@ -224,6 +224,12 @@
 }
 
 /* Portfolio v2 — Section header + Technologies */
+@media (max-width: 1023px) {
+  .header-v2 {
+    padding-top: 28px;
+  }
+}
+
 .section-header-v2 {
   display: flex;
   align-items: center;
