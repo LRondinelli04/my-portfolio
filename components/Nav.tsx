@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
 import useActiveSection from "@/hooks/useActiveSection";
 import { Badge } from "@/components/ui/badge";
 
@@ -60,8 +60,9 @@ export default function Nav() {
           <p className="text-[15px] text-[var(--fg)] mt-1">
             Desarrollador Full Stack
           </p>
-          <p className="text-[14px] text-[var(--fg-muted)]">
-            📍 La Plata, Buenos Aires
+          <p className="flex items-center gap-1.5 text-[14px] text-[var(--fg-muted)]">
+            <MapPin className="h-[14px] w-[14px]" />
+            La Plata, Buenos Aires
           </p>
 
           <a

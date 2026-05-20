@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, DM_Sans } from "next/font/google";
+import { Space_Grotesk, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -43,11 +41,6 @@ export const metadata: Metadata = {
     description:
       "Estudiante de la carrera Analista Programador Universitario y Licenciatura en Sistemas en la UNLP, haciendo el curso de Desarrollador Front End en EducacionIT, y actualmente estoy trabajando como desarrollador de software para Fiscalía de Estado en convenio con la UNLP.",
     url: "https://lucasrondinelli.netlify.app/",
-    /* images: [
-      {
-        url: "./og-large-meik-2.jpg",
-      },
-    ], */
   },
   twitter: {
     card: "summary_large_image",
@@ -63,9 +56,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`scroll-smooth ${spaceGrotesk.variable} ${dmSans.variable} ${inter.variable}`}
+      className={`scroll-smooth ${spaceGrotesk.variable} ${dmSans.variable}`}
     >
-      <body className={inter.className}>
+      <body className={dmSans.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

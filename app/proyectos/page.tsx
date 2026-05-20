@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Nav from "@/components/Nav";
@@ -16,9 +17,27 @@ export const metadata: Metadata = {
     "Listado completo de proyectos desplegados y repositorios de GitHub de Lucas Rondinelli, con su distribución de lenguajes.",
 };
 
-export default async function ProyectosPage() {
+// Componente async aislado: solo esta parte espera el fetch de GitHub,
+// así el resto de la página (heading + grilla) se renderiza al instante.
+async function ReposSection() {
   const repos = await getReposWithLanguages(MAIN_REPOS);
+  return <Repositories repos={repos} />;
+}
 
+function ReposSkeleton() {
+  return (
+    <div>
+      <SectionHeader label="Repositorios de GitHub" />
+      <div
+        className="repo-card animate-pulse"
+        style={{ minHeight: 280 }}
+        aria-hidden="true"
+      />
+    </div>
+  );
+}
+
+export default function ProyectosPage() {
   return (
     <div className="mx-auto min-h-screen max-w-[1180px] px-6 md:px-8 lg:px-6">
       <MouseAura />
@@ -45,7 +64,9 @@ export default async function ProyectosPage() {
           </section>
 
           <section>
-            <Repositories repos={repos} />
+            <Suspense fallback={<ReposSkeleton />}>
+              <ReposSection />
+            </Suspense>
           </section>
         </main>
       </div>
