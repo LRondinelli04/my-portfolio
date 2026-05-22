@@ -140,6 +140,175 @@ export const jobProjects: Project[] = [
     /* link: "https://app.mtopswap.com", */
   },
   {
+    slug: "mi-portafolio",
+    imagePath: "/projects/my-portfolio.jpg",
+    title: "Mi Portafolio",
+    description:
+      "Un portafolio personal con proyectos y habilidades desarrolladas.",
+    skills: [
+      { name: "Next.js", link: "https://nextjs.org/" },
+      { name: "Tailwind CSS", link: "https://tailwindcss.com/" },
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "React", link: "https://react.dev/" },
+      { name: "Shadcn UI", link: "https://ui.shadcn.com/" },
+    ],
+    link: "https://lucasrondinelli.netlify.app/",
+    github: "https://github.com/LRondinelli04/my-portfolio",
+    featured: true,
+  },
+  {
+    slug: "portfolio-manager-ar",
+    imagePath: "/projects/portfolio-manager/pm-1.png",
+    images: [
+      { src: "/projects/portfolio-manager/pm-1.png", alt: "Portfolio Manager" },
+      { src: "/projects/portfolio-manager/pm-2.png", alt: "Portfolio Manager" },
+    ],
+    title: "Portfolio Manager AR",
+    description:
+      "Plataforma full-stack para gestión y seguimiento de carteras de inversión con activos locales e internacionales (CEDEARs, Obligaciones Negociables, FCI). Desarrollada con Angular (TypeScript, Tailwind, spartan/ui) y .NET (C#) con PostgreSQL, mide la evolución de ganancias por activo tanto en pesos como en dólares.",
+    details: [
+      {
+        title: "Gestión de Cartera Multi-Instrumento",
+        items: [
+          {
+            data: "Soporte para distintos tipos de activos:",
+            subData: [
+              "CEDEARs (acciones/ETFs internacionales).",
+              "Obligaciones Negociables (cotización por cada 100 nominales).",
+              "FCI, Bonos y Liquidez.",
+            ],
+          },
+          {
+            data: "Dashboard con KPIs: valor total, rendimiento, capital invertido y liquidez disponible.",
+          },
+          {
+            data: "Composición de cartera por tipo de activo y ranking de tenencias por peso.",
+          },
+        ],
+      },
+      {
+        title: "Precios y Valuación",
+        items: [
+          {
+            data: "🔄 Sincronización automática de precios de CEDEARs mediante método sintético:",
+            subData: [
+              "Precio ARS = (Precio USD de Yahoo Finance × Dólar CCL) / Ratio del CEDEAR.",
+              "Cotización del Dólar CCL en tiempo real (dolarapi.com).",
+            ],
+          },
+          {
+            data: "✏️ Actualización manual de precios para instrumentos sin fuente automática (ONs, FCI).",
+          },
+          {
+            data: "Snapshot diario por instrumento que registra precio, CCL y cantidad del día para reconstruir el histórico.",
+          },
+        ],
+      },
+      {
+        title: "Evolución de Ganancias (ARS / USD)",
+        items: [
+          {
+            data: "Gráfico de evolución por activo con conmutador de moneda y métrica:",
+            subData: [
+              "Moneda: Pesos (ARS) vs Dólares (USD).",
+              "Métrica: Valor de la tenencia vs Ganancia (P&L).",
+            ],
+          },
+          {
+            data: "Cálculo correcto del valor en USD usando el CCL histórico de cada día (evita distorsiones por convertir al dólar actual).",
+          },
+          {
+            data: "P&L en dólares real a partir del CCL al momento de la compra.",
+          },
+        ],
+      },
+      {
+        title: "Registro de Transacciones",
+        items: [
+          {
+            data: "Carga de movimientos de compra y venta por instrumento.",
+          },
+          {
+            data: "Recálculo automático de la posición a partir de los movimientos:",
+            subData: [
+              "Cantidad neta (compras − ventas).",
+              "Precio Promedio de Compra (PPC) ponderado.",
+              "CCL de compra ponderado para el P&L en USD.",
+            ],
+          },
+          {
+            data: "🗓️ Autocompletado del CCL histórico según la fecha del movimiento (api.argentinadatos.com).",
+          },
+        ],
+      },
+      {
+        title: "Arquitectura Técnica",
+        items: [
+          {
+            data: "Backend en .NET (C#) con API REST, Entity Framework Core y migraciones versionadas.",
+          },
+          {
+            data: "Persistencia en PostgreSQL corriendo en Docker (docker-compose).",
+          },
+          {
+            data: "Frontend Angular standalone con Signals para estado reactivo.",
+          },
+          {
+            data: "Gráficos con ngx-echarts y componentes UI con spartan/ui + Tailwind CSS.",
+          },
+        ],
+      },
+      {
+        title: "Experiencia de Usuario",
+        items: [
+          { data: "Modo claro/oscuro con persistencia de tema." },
+          { data: "Conmutador global de moneda (ARS / USD) en toda la app." },
+          {
+            data: "Diálogos contextuales para evolución, movimientos y edición de posiciones.",
+          },
+          {
+            data: "Feedback visual en tiempo real durante la sincronización de precios.",
+          },
+        ],
+      },
+    ],
+    skills: [
+      { name: "Angular", link: "https://angular.dev/" },
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "Tailwind CSS", link: "https://tailwindcss.com/" },
+      { name: "spartan/ui", link: "https://spartan.ng/" },
+      { name: "ECharts", link: "https://echarts.apache.org/" },
+      { name: "DotNet", link: "https://dotnet.microsoft.com/" },
+      { name: "C#", link: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+      { name: "PostgreSQL", link: "https://www.postgresql.org/" },
+      { name: "Docker", link: "https://www.docker.com/" },
+    ],
+    /*     highlight: true,
+     */ featured: true,
+    /* link: "", */
+  },
+  {
+    slug: "preguntas-y-respuestas",
+    imagePath: "/projects/TPFinalJS.jpg",
+    title: "Preguntas y Respuestas",
+    description:
+      "Juego interactivo para dos jugadores, diseñado con JavaScript, HTML y CSS, que utiliza Socket.io para establecer una conexión local. Esta implementación garantiza una experiencia de juego fluida y en tiempo real.",
+    skills: [
+      {
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      },
+      {
+        name: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      { name: "Bootstrap", link: "https://getbootstrap.com/" },
+    ],
+
+    github: "https://github.com/LRondinelli04/Preguntas-y-Respuestas",
+  },
+  {
     slug: "gestor-presupuesto",
     imagePath: "/projects/Presupuesto.jpg",
     title: "Gestor de Presupuesto",
@@ -179,44 +348,5 @@ export const jobProjects: Project[] = [
     ],
     link: "https://eduit-resto.netlify.app/",
     github: "https://github.com/LRondinelli04/IT_Resto",
-  },
-  {
-    slug: "preguntas-y-respuestas",
-    imagePath: "/projects/TPFinalJS.jpg",
-    title: "Preguntas y Respuestas",
-    description:
-      "Juego interactivo para dos jugadores, diseñado con JavaScript, HTML y CSS, que utiliza Socket.io para establecer una conexión local. Esta implementación garantiza una experiencia de juego fluida y en tiempo real.",
-    skills: [
-      {
-        name: "JavaScript",
-        link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-      },
-      {
-        name: "HTML",
-        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-      },
-      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-      { name: "Bootstrap", link: "https://getbootstrap.com/" },
-    ],
-
-    github: "https://github.com/LRondinelli04/Preguntas-y-Respuestas",
-    featured: true,
-  },
-  {
-    slug: "mi-portafolio",
-    imagePath: "/projects/my-portfolio.jpg",
-    title: "Mi Portafolio",
-    description:
-      "Un portafolio personal con proyectos y habilidades desarrolladas.",
-    skills: [
-      { name: "Next.js", link: "https://nextjs.org/" },
-      { name: "Tailwind CSS", link: "https://tailwindcss.com/" },
-      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
-      { name: "React", link: "https://react.dev/" },
-      { name: "Shadcn UI", link: "https://ui.shadcn.com/" },
-    ],
-    link: "https://lucasrondinelli.netlify.app/",
-    github: "https://github.com/LRondinelli04/my-portfolio",
-    featured: true,
   },
 ];
