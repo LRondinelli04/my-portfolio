@@ -20,7 +20,9 @@ export default function ProjectDetails({ project }: { project: Project }) {
     const onSelect = () => setCurrent(api.selectedScrollSnap() + 1);
     api.on("select", onSelect);
     onSelect();
-    return () => api.off("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
   }, [api]);
 
   const auraRef = useMouseAura();
