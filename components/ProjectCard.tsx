@@ -19,30 +19,20 @@ export function ProjectCard({
 }: ProjectCardProps) {
   const clickable = Boolean(project.link);
 
-  const handleClick = () => {
-    if (project.link) {
-      window.open(project.link, "_blank", "noopener,noreferrer");
-    }
-  };
-
-  const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (!clickable) return;
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleClick();
-    }
-  };
-
   return (
     <div
       className={`proj-card${isWide ? " proj-card--wide" : ""}`}
       data-clickable={clickable}
-      onClick={clickable ? handleClick : undefined}
-      onKeyDown={clickable ? handleKey : undefined}
-      role={clickable ? "link" : undefined}
-      tabIndex={clickable ? 0 : undefined}
-      aria-label={clickable ? `Abrir ${project.title}` : undefined}
     >
+      {clickable && (
+        <a
+          href={project.link!}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Abrir ${project.title}`}
+          className="proj-card-stretched-link"
+        />
+      )}
       <div className="proj-img-wrap">
         <Image
           src={project.imagePath}

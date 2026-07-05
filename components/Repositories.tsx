@@ -6,6 +6,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import SectionHeader from "@/components/sections/SectionHeader";
 import type { RepoWithLanguages } from "@/components/data/githubLanguages";
+import { Github } from "lucide-react";
 
 type Props = {
   repos: RepoWithLanguages[];
@@ -14,7 +15,7 @@ type Props = {
 export default function Repositories({ repos }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { align: "start", loop: true },
-    [Autoplay({ delay: 7000, stopOnInteraction: false })]
+    [Autoplay({ delay: 7000, stopOnInteraction: false })],
   );
   const [selected, setSelected] = useState(0);
 
@@ -22,7 +23,7 @@ export default function Repositories({ repos }: Props) {
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
   const scrollTo = useCallback(
     (i: number) => emblaApi?.scrollTo(i),
-    [emblaApi]
+    [emblaApi],
   );
 
   useEffect(() => {
@@ -100,10 +101,11 @@ export default function Repositories({ repos }: Props) {
                     href={repo.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="repo-link"
+                    aria-label={`${repo.title} en GitHub`}
+                    className="proj-icon-btn"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    Ver repositorio
-                    <ExternalLink className="h-[14px] w-[14px]" />
+                    <Github className="h-[16px] w-[16px]" />
                   </a>
                 </div>
               </article>

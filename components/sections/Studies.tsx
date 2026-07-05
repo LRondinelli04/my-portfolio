@@ -4,9 +4,14 @@ import { useState } from "react";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { CERTIFICATIONS } from "@/components/data/certifications";
 import SectionHeader from "@/components/sections/SectionHeader";
+import CertificateLightbox from "@/components/CertificadoLightbox";
 
 export default function Studies() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [lightbox, setLightbox] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
 
   return (
     <div>
@@ -30,43 +35,68 @@ export default function Studies() {
 
         {CERTIFICATIONS.map((cert, i) => {
           const isOpen = openIdx === i;
+          const image = cert.image;
           return (
             <div key={cert.title} className="cert-card">
-              <div className="cert-top">
-                <p className="cert-title">{cert.title}</p>
-                <p className="cert-issuer">
-                  {cert.issuer} · {cert.date}
-                </p>
-                <p className="cert-desc">{cert.description}</p>
+              <div className="cert-main" data-has-image={Boolean(image)}>
+                <div className="cert-top">
+                  <p className="cert-title">{cert.title}</p>
+                  <p className="cert-issuer">
+                    {cert.issuer} · {cert.date}
+                  </p>
+                  <p className="cert-desc">{cert.description}</p>
 
-                <div className="cert-actions">
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cert-btn"
-                  >
-                    Ver certificado
-                    <ExternalLink className="h-[13px] w-[13px]" />
-                  </a>
-
-                  {cert.subs && (
-                    <button
-                      type="button"
-                      className="cert-expand-btn"
-                      aria-expanded={isOpen}
-                      onClick={() => setOpenIdx(isOpen ? null : i)}
+                  <div className="cert-actions">
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cert-btn"
                     >
-                      {isOpen
-                        ? "Ocultar cursos"
-                        : `Ver ${cert.subs.length} cursos`}
-                      <ChevronDown
-                        className="cert-chevron h-[14px] w-[14px]"
-                        data-open={isOpen}
-                      />
-                    </button>
-                  )}
+                      Ver certificado
+                      <ExternalLink className="h-[13px] w-[13px]" />
+                    </a>
+
+                    {cert.subs && (
+                      <button
+                        type="button"
+                        className="cert-expand-btn"
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenIdx(isOpen ? null : i)}
+                      >
+                        {isOpen
+                          ? "Ocultar cursos"
+                          : `Ver ${cert.subs.length} cursos`}
+                        <ChevronDown
+                          className="cert-chevron h-[14px] w-[14px]"
+                          data-open={isOpen}
+                        />
+                      </button>
+                    )}
+                  </div>
                 </div>
+
+                {image && (
+                  <button
+                    type="button"
+                    className="cert-figure"
+                    aria-label={`Ampliar certificado de ${cert.title}`}
+                    onClick={() =>
+                      setLightbox({
+                        src: image,
+                        alt: `Certificado: ${cert.title}`,
+                      })
+                    }
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={image}
+                      alt={`Certificado: ${cert.title}`}
+                      className="cert-image"
+                      loading="lazy"
+                    />
+                  </button>
+                )}
               </div>
 
               {cert.subs && (
@@ -100,6 +130,12 @@ export default function Studies() {
           );
         })}
       </div>
+
+      <CertificateLightbox
+        src={lightbox?.src ?? null}
+        alt={lightbox?.alt ?? ""}
+        onClose={() => setLightbox(null)}
+      />
     </div>
   );
 }

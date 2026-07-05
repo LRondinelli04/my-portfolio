@@ -309,6 +309,7 @@
   border-radius: var(--portfolio-radius);
   background: var(--bg-card);
   transition: border-color 0.2s ease;
+  display: flex;
 }
 
 .study-card:hover,
@@ -361,8 +362,86 @@
   margin-top: 8px;
 }
 
+.cert-card {
+  flex-direction: column;
+}
+
+.cert-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+}
+
+.cert-main[data-has-image="true"] {
+  grid-template-columns: minmax(0, 1fr) clamp(240px, 38%, 380px);
+}
+
 .cert-top {
   padding: 22px;
+}
+
+.cert-figure {
+  display: block;
+  padding: 18px 18px 18px 0;
+  background: none;
+  border: none;
+  cursor: zoom-in;
+  border-radius: var(--portfolio-radius-sm);
+}
+
+.cert-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--portfolio-radius-sm);
+  border: 1px solid var(--portfolio-border-mid);
+  filter: brightness(0.85);
+  transition:
+    filter 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cert-figure:hover .cert-image,
+.cert-figure:focus-visible .cert-image {
+  filter: brightness(1);
+  transform: translateY(-2px);
+  border-color: var(--portfolio-accent);
+  box-shadow: 0 10px 28px oklch(0.68 0.22 258 / 0.18);
+}
+
+@media (max-width: 800px) {
+  .cert-main[data-has-image="true"] {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-top {
+    padding-bottom: 16px;
+  }
+
+  .cert-figure {
+    padding: 0 22px 20px;
+  }
+}
+
+.cert-lightbox {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: min(1200px, 100%);
+  animation: modal-box-in 0.35s cubic-bezier(0.25, 0.8, 0.3, 1.1);
+}
+
+.cert-lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--portfolio-radius);
+  border: 1px solid var(--portfolio-border-mid);
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.8);
 }
 
 .cert-title {
@@ -450,7 +529,7 @@
 }
 
 .cert-subs[data-open="true"] {
-  max-height: 700px;
+  max-height: 1400px;
 }
 
 .cert-subs-inner {
@@ -480,6 +559,18 @@
   font-size: 12px;
   flex-shrink: 0;
   white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .cert-sub-item {
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    padding: 12px 0;
+  }
+
+  .cert-sub-title {
+    flex: 1 1 100%;
+  }
 }
 
 /* Portfolio v2 — Projects */
@@ -530,6 +621,13 @@
 .proj-card[data-clickable="true"]:hover {
   transform: translateY(-3px);
   box-shadow: 0 18px 42px -22px rgba(0, 0, 0, 0.7);
+}
+
+.proj-card-stretched-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
 }
 
 .proj-img-wrap {
@@ -610,6 +708,8 @@
 .proj-icon-btn {
   flex-shrink: 0;
   display: inline-flex;
+  position: relative;
+  z-index: 2;
   align-items: center;
   justify-content: center;
   width: 32px;
@@ -694,6 +794,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  position: relative;
+  z-index: 2;
   padding: 6px 11px;
   border-radius: var(--portfolio-radius-sm);
   border: 1px solid var(--portfolio-border-mid);
@@ -1302,9 +1404,20 @@
   animation: modal-overlay-in 0.2s ease;
 }
 
+.modal-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
 .modal-box {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 760px;
   max-height: 88vh;

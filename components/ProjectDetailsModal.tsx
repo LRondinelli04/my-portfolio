@@ -42,12 +42,13 @@ export default function ProjectDetailsModal({ project, onClose }: Props) {
   if (!mounted || !project) return null;
 
   return createPortal(
-    <div
-      className="modal-overlay"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
-    >
+    <div className="modal-overlay">
+      <button
+        type="button"
+        className="modal-overlay-backdrop"
+        aria-label="Cerrar"
+        onClick={onClose}
+      />
       <div
         className="modal-box"
         role="dialog"

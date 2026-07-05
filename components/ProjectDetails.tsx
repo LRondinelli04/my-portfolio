@@ -14,16 +14,13 @@ import type { Project } from "@/components/data/projectsData";
 export default function ProjectDetails({ project }: { project: Project }) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
+  const count = api ? api.scrollSnapList().length : 0;
   React.useEffect(() => {
-    if (!api) {
-      return;
-    }
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
+    if (!api) return;
+    const onSelect = () => setCurrent(api.selectedScrollSnap() + 1);
+    api.on("select", onSelect);
+    onSelect();
+    return () => api.off("select", onSelect);
   }, [api]);
 
   const auraRef = useMouseAura();

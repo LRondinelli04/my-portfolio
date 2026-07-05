@@ -16,18 +16,18 @@ export type Certification = {
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    title: "Front End Web Developer",
+    title: "React JS Developer",
     issuer: "EducaciónIT",
-    date: "En curso — Jun 2025",
+    date: "Junio 2026",
     description:
       "Carrera completa de desarrollo frontend: HTML, CSS, JavaScript, UX, Git, Angular y más. 10+ certificados individuales.",
-    image: "/certifications/UltimoEduIT.jpeg",
-    link: "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/76136",
+    link: "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/696",
+    image: "/certifications/ReactJS-certificado.jpeg",
     subs: [
       {
         title: "Javascript PWA (Progressive Web App)",
         date: "Jun 2026",
-        link: "",
+        link: "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/84226",
       },
       {
         title: "Scrum Fundamentos",
@@ -97,6 +97,6 @@ export const CERTIFICATIONS: Certification[] = [
     date: "Jul 2024",
     description: "Certificación oficial de C# en colaboración con Microsoft.",
     image: "/certifications/freeCodeCamp.jpg",
-    link: "https://www.freecodecamp.org/certification/LRondinelli04/foundational-c-sharp-with-microsoft",
+    link: "https://www.freecodecamp.org/certification/lrondinelli04/foundational-c-sharp-with-microsoft",
   },
 ];
