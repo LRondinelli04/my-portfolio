@@ -22,7 +22,7 @@ export default function About() {
       </p>
       <p className="about-p">
         En paralelo, curso la carrera de{" "}
-        <strong>Desarrollador Front End</strong> en EducaciónIT, donde aplico y
+        <strong>React JS Developer</strong> en EducaciónIT, donde aplico y
         consolido mis habilidades en un entorno de aprendizaje estructurado.
       </p>
 
