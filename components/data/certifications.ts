@@ -16,13 +16,13 @@ export type Certification = {
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    title: "React JS Developer",
+    title: "Front End Developer",
     issuer: "EducaciónIT",
     date: "Junio 2026",
     description:
       "Carrera completa de desarrollo frontend: HTML, CSS, JavaScript, UX, Git, Angular y más. 10+ certificados individuales.",
     link: "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/696",
-    image: "/certifications/ReactJS-certificado.jpeg",
+    image: "/certifications/FrontEndDeveloper-certificado.jpeg",
     subs: [
       {
         title: "Javascript PWA (Progressive Web App)",

@@ -21,7 +21,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
     api.on("select", onSelect);
     onSelect();
     return () => {
-      void api.off("select", onSelect);
+      api.off("select", onSelect);
     };
   }, [api]);
 
