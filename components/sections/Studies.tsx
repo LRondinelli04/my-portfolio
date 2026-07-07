@@ -42,9 +42,9 @@ export default function Studies() {
                 <div className="cert-top">
                   <p className="cert-title">{cert.title}</p>
                   <p className="cert-issuer">
-                    {cert.issuer} · {cert.date}
+                    {cert.institucion} · {cert.date}
                   </p>
-                  <p className="cert-desc">{cert.description}</p>
+                  <p className="cert-desc">{cert.desc}</p>
 
                   <div className="cert-actions">
                     <a

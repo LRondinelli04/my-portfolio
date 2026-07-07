@@ -7,8 +7,7 @@ export default function Contact() {
       <SectionHeader label="Contacto" />
       <h2 className="contact-heading">Trabajemos juntos</h2>
       <p className="contact-sub">
-        Si estás considerando mi colaboración, tenés una pregunta o simplemente
-        querés saludar — ¡siempre estoy disponible para responder!
+        Si estás considerando mi colaboración o tenés una pregunta — ¡estoy disponible para responder!
       </p>
 
       <div className="contact-options">
@@ -19,7 +18,7 @@ export default function Contact() {
           className="contact-primary"
         >
           <Mail className="h-[16px] w-[16px]" />
-          lrondinelli2004@gmail.com
+          Email
         </a>
         <a
           href="https://www.linkedin.com/in/lucas-rondinelli-9b83a9267/"

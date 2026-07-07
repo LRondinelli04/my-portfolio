@@ -6,9 +6,9 @@ export type SubCert = {
 
 export type Certification = {
   title: string;
-  issuer: string;
+  institucion: string;
   date: string;
-  description: string;
+  desc: string;
   image?: string;
   link: string;
   subs?: SubCert[];
@@ -17,9 +17,9 @@ export type Certification = {
 export const CERTIFICATIONS: Certification[] = [
   {
     title: "Front End Developer",
-    issuer: "EducaciónIT",
+    institucion: "EducaciónIT",
     date: "Junio 2026",
-    description:
+    desc:
       "Carrera completa de desarrollo frontend: HTML, CSS, JavaScript, UX, Git, Angular y más. 10+ certificados individuales.",
     link: "https://www.educacionit.com/perfil/lucas-rondinelli-974361/certificado/696",
     image: "/certifications/FrontEndDeveloper-certificado.jpeg",
@@ -93,9 +93,9 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     title: "Foundational C# with Microsoft",
-    issuer: "freeCodeCamp",
+    institucion: "freeCodeCamp",
     date: "Jul 2024",
-    description: "Certificación oficial de C# en colaboración con Microsoft.",
+    desc: "Certificación oficial de C# en colaboración con Microsoft.",
     image: "/certifications/freeCodeCamp.jpg",
     link: "https://www.freecodecamp.org/certification/lrondinelli04/foundational-c-sharp-with-microsoft",
   },

@@ -17,13 +17,13 @@ export default function About() {
         >
           Fiscalía de Estado de Buenos Aires
         </a>
-        , utilizando tecnologías como .NET, C#, Angular y TypeScript en proyectos de impacto
-        institucional real.
+        , utilizando .NET, C#, Angular y TypeScript en proyectos de alto impacto
+        institucional.
       </p>
       <p className="about-p">
-        En paralelo, curso la carrera de{" "}
-        <strong>React JS Developer</strong> en EducaciónIT, donde aplico y
-        consolido mis habilidades en un entorno de aprendizaje estructurado.
+        En paralelo, cursé la carrera de{" "}
+        <strong>Front End Developer</strong> en EducaciónIT, donde apliqué y
+        consolidé mis habilidades en un entorno de aprendizaje estructurado.
       </p>
 
       <div className="currently-card">
