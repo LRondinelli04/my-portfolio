@@ -1,6 +1,5 @@
 export type MainRepo = {
   title: string;
-  /** `owner/repo` — se usa directo para la API de GitHub. */
   slug: string;
   description: string;
   github: string;

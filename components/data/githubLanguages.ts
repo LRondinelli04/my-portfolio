@@ -35,11 +35,6 @@ export function getColorForLanguage(name: string): string {
   return LANGUAGE_COLORS[name] ?? "var(--portfolio-accent)";
 }
 
-/**
- * Pide los lenguajes de un repo a la API de GitHub.
- * Nunca lanza: ante token ausente, repo privado, 404 o error de red
- * devuelve `{}` para que el build no se rompa.
- */
 async function fetchRepoLanguages(
   slug: string
 ): Promise<Record<string, number>> {

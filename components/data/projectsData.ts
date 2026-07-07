@@ -6,9 +6,7 @@ export type Project = {
   skills: { name: string; link: string }[];
   link?: string;
   github?: string;
-  /** Ocupa fila completa en la grilla de /proyectos. */
   highlight?: boolean;
-  /** Se muestra en el carrusel 3D del home. */
   featured?: boolean;
   details?: {
     title: string;
@@ -137,7 +135,6 @@ export const jobProjects: Project[] = [
     ],
     highlight: true,
     featured: true,
-    /* link: "https://app.mtopswap.com", */
   },
   {
     slug: "mi-portafolio",
